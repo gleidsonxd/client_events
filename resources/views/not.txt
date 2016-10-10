@@ -1,0 +1,40 @@
+<select name="servicos[]" multiple="multiple">
+		<!-- 	<?php 
+		// $servicos = json_decode($results);
+		// 	foreach ($servicos as $servico) {
+		// 		foreach ($eventos->servicos as $es) {
+					
+		// 			if($servico->id == $es->id){
+		?>	
+		
+		<option value="{{ $servico->id }}" selected> {{ $servico->nome }}</option>
+		<?php 
+			//		}else{
+		 ?>
+		 <option value="{{ $servico->id }}"> {{ $servico->nome }}</option>
+		<?php	
+			// 		}
+			// 	}	
+			// }
+		 ?> -->
+		</select><br>
+
+		<select name="lugares[]" multiple="multiple">
+			<!-- <?php 
+			// $lugares = json_decode($resultl);
+			// 	foreach ($lugares as $lugar) {
+			// 		foreach ($eventos->lugars as $el) {
+			// 			if ($lugar->id == $el->id) {			
+			?>	
+			
+			<option value="{{ $lugar->id }}" selected> {{ $lugar->nome }}</option>
+			<?php 
+						// }else{
+			 ?>
+			 <option value="{{ $lugar->id }}"> {{ $lugar->nome }}</option>
+			<?php
+				// 		}
+				// 	}	
+				// }
+			 ?> -->
+		</select><br>
