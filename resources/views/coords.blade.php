@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Lista de Coords</title>
-</head>
-<body>
+@extends('layouts.default')
+@section('content')
 	<h1>Lista</h1>
 	<ul>
 		
@@ -19,6 +14,5 @@
 	 ?>
 		
 	</ul>
-	<a href="/">Volta</a>
-</body>
-</html>
+	<a href="/index">Volta</a>
+@endsection

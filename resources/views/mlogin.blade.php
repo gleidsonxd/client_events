@@ -5,7 +5,7 @@
 	<title>Login</title>
 </head>
 <body>
-	<form action="login" method="POST">
+	<form action="\login" method="POST">
 		Email: <input type="text" value="email4@email.com" name="email">
 		{{ csrf_field() }}
 		<input type="submit">

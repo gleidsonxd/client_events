@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Coord</title>
-</head>
-<body>
+@extends('layouts.default')
+@section('content')
 	<?php 
 		// var_dump(json_decode($result,true));
 		// echo "<br><br>";
@@ -22,6 +17,5 @@
 		
 	</form>
 
-	<br><br><a href="/">Volta</a>
-</body>
-</html>
+	<br><br><a href="/index">Volta</a>
+@endsection

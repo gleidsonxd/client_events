@@ -11,17 +11,20 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('index');
+    return view('/mlogin');
 });
+Route::get('/index', 'HomeController@index');
+Route::get('/noadmin', 'HomeController@noadmin');
 Route::get('feed','EventosController@feed');
-// Route::get('/mlogin', function () {
-//     return view('mlogin');
-// });
+Route::get('/mlogin', function () {
+    return view('mlogin');
+});
 
-// Route::get('/sair','UsuariosController@logout');
+Route::get('/sair','UsuariosController@logout');
 
-// Route::post('/login','UsuariosController@login');
+Route::post('/login','UsuariosController@login');
 
 // Route::auth();
 
@@ -51,9 +54,7 @@ Route::put('servicos/{id}','ServicosController@update');
 Route::delete('servicos/{id}','ServicosController@delete');
 
 //Rotas Usuarios MODIFICAR
-Route::get('form_usuario', function () {
-    return view('usuario_form');
-});
+Route::get('form_usuario','UsuariosController@form');
 Route::post('editar_usuario', 'UsuariosController@edit');
 
 
@@ -64,9 +65,7 @@ Route::put('usuarios/{id}','UsuariosController@update');
 Route::delete('usuarios/{id}','UsuariosController@delete');
 
 //Rotas coords
-Route::get('form_coord', function () {
-    return view('coord_form');
-});
+Route::get('form_coord', 'CoordsController@form');
 Route::post('editar_coord', 'CoordsController@edit');
 
 
@@ -77,9 +76,7 @@ Route::put('coords/{id}','CoordsController@update');
 Route::delete('coords/{id}','CoordsController@delete');
 
 //Rotas Lugars
-Route::get('form_lugar', function () {
-    return view('lugar_form');
-});
+Route::get('form_lugar', 'LugarsController@form');
 Route::post('editar_lugar', 'LugarsController@edit');
 
 

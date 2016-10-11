@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Edita Eventos</title>
-</head>
-<body>
+@extends('layouts.default')
+@section('content')
 	<?php 
 		//var_dump(json_decode($result,true));
 		// echo "<br><br>";
@@ -53,6 +48,5 @@
 		
 		
 	</form>
-	<a href="/">Volta</a>
-</body>
-</html>
+	<a href="/index">Volta</a>
+@endsection

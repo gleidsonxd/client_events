@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Form Lugar</title>
-</head>
-<body>
+@extends('layouts.default')
+@section('content')
 	<form action="lugars" method="POST">
 		
 		<input type="text" name="nome" placeholder="Digite o nome"><br>
@@ -13,6 +8,5 @@
 		{{ csrf_field() }}
 		<input type="submit">
 	</form>
-	<a href="/">Volta</a>
-</body>
-</html>
+	<a href="/index">Volta</a>
+@endsection

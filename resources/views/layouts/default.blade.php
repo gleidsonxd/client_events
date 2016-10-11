@@ -5,6 +5,14 @@
 	<title>Eventos</title>
 </head>
 <body>
+	<?php @$email = session('email'); @$logado = session('logado'); ?>
+	{{ isset($email) ? $email : 'Default'}}
+	@if ($logado == true)
+	<a href="/sair">Sair</a><br>
+	@else
+	<a href="/">Voltar</a><br>
+	@endif
+	
 	 @yield('content')
 </body>
 </html>

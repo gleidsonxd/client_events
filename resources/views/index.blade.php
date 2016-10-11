@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Index</title>
-</head>
-<body>
+@extends('layouts.default')
+@section('content')
 	<!-- <a href="/mlogin">login</a><br> -->
+	<?php @$adm = session('adm'); ?>
+	@if($adm == true)
 	<a href="/form_coord">Cadastrar Coords</a><br>
 	<a href="/coords">Listar Coords</a><br><br>
 
@@ -20,8 +17,7 @@
 
 	<a href="/form_evento">Cadastrar Eventos</a><br>
 	<a href="/eventos">Listar Eventos</a><br><br>
-	
-	
-
-</body>
-</html>
+	@else
+	<a href="/eventos">Listar Eventos</a><br><br>
+	@endif
+@endsection	

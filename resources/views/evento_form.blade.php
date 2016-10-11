@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Form Eventos</title>
-</head>
-<body>
+@extends('layouts.default')
+@section('content')
 	<form action="eventos" method="POST">
 		
 		<input type="text" name="nome" placeholder="Digite o nome"><br>
@@ -40,6 +35,5 @@
 		{{ csrf_field() }}
 		<input type="submit">
 	</form>
-	<a href="/">Volta</a>
-</body>
-</html>
+	<a href="/index">Volta</a>
+@endsection

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Lista de Coords</title>
+	<title>Lista de Eventos</title>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.3/fullcalendar.min.css" />
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.js"></script>
@@ -28,7 +28,13 @@
 
 </head>
 <body>
-	
+	<?php @$email = session('email'); @$logado = session('logado'); ?>
+	{{ isset($email) ? $email : 'Default'}}
+	@if ($logado == true)
+	<a href="/sair">Sair</a><br>
+	@else
+	<a href="/">Voltar</a><br>
+	@endif
 <div id='calendar'></div>
 	<h1>Lista</h1>
 	
@@ -48,6 +54,6 @@
 	 ?>
 		
 	</ul>
-	<a href="/">Volta</a>
+	<a href="/index">Volta</a>
 </body>
 </html>
