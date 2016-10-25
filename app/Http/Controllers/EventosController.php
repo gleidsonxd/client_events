@@ -164,10 +164,36 @@ class EventosController extends Controller
     }
     public function update($id)
     {
+    	
+    	
     	if (session('logado')!= 1) {
 		return view("mlogin");
 		}
-    	$u = "evento[nome]=".$_POST['nome']."&evento[data_ini]=".$_POST['data_ini']."&evento[data_fim]=".$_POST['data_fim']."&evento[descricao]=".$_POST['desc']."&evento[usuario_id]=4&usuarioid=4";
+		
+		if (isset($_POST['servicos'])) {
+     		$aS = $_POST['servicos'];
+     		foreach ($aS as $serv) {
+     			 @$s .= "evento[servico_ids][]=".$serv."&";
+     			 
+    		}
+     		$ss = "". substr($s,0,-1);
+     		
+     	}else{
+     		$ss = '';
+     	}
+     	if (isset($_POST['lugares'])) {
+     		$aL = $_POST['lugares'];
+     		foreach ($aL as $lug) {
+     			 @$l .= "evento[lugar_ids][]=".$lug."&";
+    		}
+     		$sl ="".  substr($l,0,-1);
+     	}else{
+     		$sl = '';
+     	}
+     	//echo $ss."&".$sl."||||";
+     	
+    	$u = "evento[nome]=".$_POST['nome']."&evento[data_ini]=".$_POST['data_ini']."&evento[data_fim]=".$_POST['data_fim']."&evento[descricao]=".$_POST['desc']."&evento[usuario_id]=4&usuarioid=4&".$ss."&".$sl;
+    	//echo $u;
     	$ch = curl_init();
 
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/eventos/".$id);
