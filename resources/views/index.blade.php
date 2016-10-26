@@ -18,7 +18,8 @@
 	<a href="/form_evento">Cadastrar Eventos</a><br>
 	<a href="/eventos">Listar Eventos</a><br><br>
 	@else
-	<a href="/form_coord">Cadastrar Coords</a><br>
+	
+	<a href="/form_evento">Cadastrar Eventos</a><br>
 	<a href="/eventos">Listar Eventos</a><br><br>
 	@endif
 @endsection	
