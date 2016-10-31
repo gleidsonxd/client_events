@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 	<!--Bootstrap-->
 	<!--Fullcallendar-->
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.3/fullcalendar.min.css" />
@@ -35,15 +36,34 @@
 	</script>
 
  	<style type="text/css">
+ 	    body{
+	      background-color: #c0c0c0;
+	    }
     	.jumbotron {
    			 background-color: #00420c;
 		    padding-top: 5%;
-		    margin-top: 5%;
+		    /*margin-top: 5%;*/
 		    margin-right: 5%;
 		    margin-left: 5%;
 		    padding-bottom: 5%;
-		    margin-bottom: 10%;
+		    margin-bottom: 5%;
 		}
+		#calendar{
+		  margin-left:5%;
+		  margin-right:5%;
+		  background-color:#FFFFFF;
+		}
+		.footer {
+      /*position: absolute;*/
+      margin-top: 5%;
+      margin-right: 5%;
+		  margin-left: 5%;
+      bottom: 0;
+      /*width: 100%;*/
+      /* Set the fixed height of the footer here */
+      height: 60px;
+      background-color: #00420c;
+    }
     </style>
 </head>
 <body>
@@ -57,7 +77,7 @@
     <!--Banner-->
 
 			<!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-left:5%;margin-right:5%;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -139,7 +159,7 @@
       </div>
     </nav>
     
-   
+
 	<!--<?php //@$email = session('email'); @$logado = session('logado'); ?>-->
 	<!--{{ isset($email) ? $email : 'Default'}}-->
 	<!--@if ($logado == true)-->
@@ -163,5 +183,10 @@
 	 ?>-->
 	<!--</ul>-->
 	<a href="/index">Volta</a>
+	  <footer class="footer">
+      <div class="container">
+        <h1 style="color:white; text-align: center">Footer</h1>
+      </div>
+    </footer>
 </body>
 </html>

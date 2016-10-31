@@ -1,5 +1,17 @@
 @extends('layouts.default')
 @section('content')
+	<style type="text/css">
+		.form-group{
+			border-style: double; 
+			margin-right:30%;
+			margin-left: 30%;
+			padding-left: 10%;
+			padding-right:10%;
+			padding-top: 1%;
+			padding-bottom: 1%;
+		}
+			
+	</style>
 	<?php 
 		//var_dump(json_decode($result,true));
 		// echo "<br><br>";
@@ -40,73 +52,75 @@
 			
 		
 	 ?>
+	<div class=" form-group">
 	<form action="/eventos/{{ $eventos->id }}" method="POST">
-				
-		<input type="text" name="nome" value="{{ $eventos->nome }}"><br>
-		<textarea rows="4" cols="50" name="desc">{{ $eventos->descricao }}</textarea><br>
-
+			<label for="nome">Nome do Evento:</label>
+			<input type="text" class="form-control" name="nome" id="nome" value="{{ $eventos->nome }}">
 		
+			<label for="desc">Descrição do evento:</label>
+	  		<textarea class="form-control" rows="5" name="desc" id="desc">{{ $eventos->descricao }}</textarea>
 		
-		<select name="servicos[]" multiple="multiple">
-		<option value="" disabled>---</option>
+			<label for="servicos">Servicos:</label>
+		    <select class="form-control" id="servicos" name="servicos[]" multiple="multiple">
+		    	<!--<option value="" disabled>---</option>-->
+				@foreach($servicos as $s)
+					@foreach($pssi  as $p)
+						@if($s->id == $p)
+							<option value="{{ $s->id }}" selected>{{ $s->nome }}</option>
+					
+						@endif
+					@endforeach
+					@foreach($ress  as $r)
+						@if($s->id == $r)
+							<option value="{{ $s->id }}" >{{ $s->nome }}</option>
+					
+						@endif
+					@endforeach
+				@endforeach
+		    </select>
 		
-		 
-		@foreach($servicos as $s)
-			@foreach($pssi  as $p)
-				@if($s->id == $p)
-					<option value="{{ $s->id }}" selected>{{ $s->nome }}</option>
 			
-				@endif
-			@endforeach
-			@foreach($ress  as $r)
-				@if($s->id == $r)
-					<option value="{{ $s->id }}" >{{ $s->nome }}</option>
-			
-				@endif
-			@endforeach
-		@endforeach
-		<!--<option value="" selected>S1</option>-->
-		<!--<option value="" selected>S2</option>-->
-		<!--<option value="">S3</option>-->
-
-		</select><br>
-
-		<select name="lugares[]" multiple="multiple">
-		<option value="" disabled>---</option>
-		@foreach($lugars as $l)
-			@foreach($plli  as $p)
-				@if($l->id == $p)
-					<option value="{{ $l->id }}" selected>{{ $l->nome }}</option>
-			
-				@endif
-			@endforeach
-			@foreach($resl  as $r)
-				@if($l->id == $r)
-					<option value="{{ $l->id }}" >{{ $l->nome }}</option>
-			
-				@endif
-			@endforeach
-		@endforeach
+			<label for="lugares">Lugares:</label>
+			<select class="form-control" id="lugares" name="lugares[]" multiple="multiple">
+				<!--<option value="" disabled>---</option>-->
+				@foreach($lugars as $l)
+					@foreach($plli  as $p)
+						@if($l->id == $p)
+							<option value="{{ $l->id }}" selected>{{ $l->nome }}</option>
+					
+						@endif
+					@endforeach
+					@foreach($resl  as $r)
+						@if($l->id == $r)
+							<option value="{{ $l->id }}" >{{ $l->nome }}</option>
+					
+						@endif
+					@endforeach
+				@endforeach
+			</select>
 	
-		</select><br>
-		
-
-		<input type="datetime" name="data_ini" value="{{ $eventos->data_ini }}"><br>
-		<input type="datetime" name="data_fim" value="{{ $eventos->data_fim }}"><br>
-		
-		
-		{{ csrf_field() }}
-		<input type="submit" value="ATT">
-		<input type="hidden" value="PUT" name="_method">
+		<!--BOOTSTRAP DATEPICKER-->
+	
+			<input type="datetime" name="data_ini" value="{{ $eventos->data_ini }}" ><br>
+			<input type="datetime" name="data_fim" value="{{ $eventos->data_fim }}"><br>
+			
+			
+			{{ csrf_field() }}
+			
+			<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top:10px;width:150px;">Atualizar</button>
+			<input type="hidden" value="PUT" name="_method">
+			
+			
 	</form>
 
 	<form action="/eventos/{{ $eventos->id }}" method="POST">
 		{{ csrf_field() }}
-		<input type="submit" value="DELETAR">
+		<!--<input type="submit" value="DELETAR">-->
+		<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top:10px;width:150px;">Deletar</button>
 		<input type="hidden" value="DELETE" name="_method">
 	</form>
 		
-		
-	</form>
+	</div>		
+
 	<a href="/index">Volta</a>
 @endsection

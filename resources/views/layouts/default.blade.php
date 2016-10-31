@@ -7,28 +7,52 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+		
 	<style type="text/css">
+	    body{
+	      background-color: #c0c0c0;
+	      min-width:50%;
+	      
+	    }
     	.jumbotron {
    			 background-color: #00420c;
 		    padding-top: 5%;
-		    margin-top: 5%;
+		    /*margin-top: 5%;*/
 		    margin-right: 5%;
 		    margin-left: 5%;
 		    padding-bottom: 5%;
 		    margin-bottom: 10%;
 		}
+		.footer {
+      margin-top: 10%;
+      margin-right: 5%;
+		  margin-left: 5%;
+      /* Set the fixed height of the footer here */
+      height: 60px;
+      background-color: #00420c;
+    }
+    .form-group{
+       padding-left :35%;
+       padding-right: 35%;
+       
+    }
+    .well{
+      text-align:left;
+      margin-left: -100%;
+      margin-right: -100%;
+    }
+    
     </style>
 </head>
 <body>
-	<div class="jumbotron" style="background-color:#00420c">
+	  <div class="jumbotron" style="background-color:#00420c">
       <div class="banner">
         <h1 style="color:white; text-align: center">IFPB - EVENTOS</h1>
       </div>
     </div>
 
 	<!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-left:5%;margin-right:5%;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -122,5 +146,11 @@
 	
 	 @yield('content')
 	 </div>
+	  <footer class="footer">
+      <div class="container">
+        <h1 style="color:white; text-align: center">Footer</h1>
+      </div>
+    </footer>
+	 
 </body>
 </html>
