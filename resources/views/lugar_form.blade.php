@@ -12,6 +12,7 @@
 		}
 			
 	</style>
+	<h1>Cadastro Lugar</h1>
 	<form action="lugars" method="POST">
 	
 	<div class="form-group">

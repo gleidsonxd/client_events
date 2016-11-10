@@ -10,7 +10,7 @@
 		 ?>
 		 <h2>Serviço</h2>
 		<h3>Nome: {{$servicos->nome}}</h3>
-		<h3>Tempo: {{$servicos->tempo}}</h3>
+		<h3>Tempo: {{$servicos->tempo}} {{$servicos->tempo > 1 ?  "dias" : "dia"}}</h3>
 		<h3>Coordenação do Servico: {{$servicos->coord->nome}}</h3>
 	</div>
 	

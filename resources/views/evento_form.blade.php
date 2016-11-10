@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+
 	<style type="text/css">
 	.form-group{
 		border-style: double; 
@@ -9,9 +10,11 @@
 		padding-right:10%;
 		padding-top: 1%;
 		padding-bottom: 1%;
+		
 	}
 		
 	</style>
+	<h1>Cadastro Evento</h1>
 	<form action="eventos" method="POST">
 		
 		<div class="form-group" style="">
@@ -54,10 +57,12 @@
 				<?php	
 					}
 				 ?>
-			</select><br>
-	<!--BOOTSTRAP NOS DATAPICKERS-->
-			<input type="datetime-local" name="data_ini"><br>
-			<input type="datetime-local" name="data_fim">
+			</select>
+	
+			<label for="data_ini">Data Inicial:</label>
+			<input type="datetime-local" name="data_ini" class="form-control" id="data_ini">
+			<label for="data_fim">Data Final:</label>
+			<input type="datetime-local" name="data_fim" class="form-control" id="data_fim"><br>
 			
 	
 			{{ csrf_field() }}

@@ -19,12 +19,13 @@
 		//echo "Nome: ".$coords->{'nome'}." Email: ".$coords->{'email'};
 
 	 ?>
+	 <h1>Editar Lugar</h1>
 	<div class="form-group">
 		<form action="/lugars/{{ $lugars->id }}" method="POST">
 			<label for="nome">Nome do Lugar:</label>
 			<input type="text" id="nome" name="nome" class="form-control" value="{{ $lugars->{'nome'} }}">
 			<label for="nome">Quantidade de Pessoas:</label>
-			<input type="number" id="quantidade" name="quantidade" value="0" min="0" class="form-control" value="{{ $lugars->{'quantidade'} }}">
+			<input type="number" id="quantidade" name="quantidade" min="0" class="form-control" value="{{ $lugars->{'quantidade'} }}">
 			
 	
 			

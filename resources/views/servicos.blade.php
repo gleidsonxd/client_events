@@ -14,7 +14,7 @@
 			 ?>
 			 <h3>Serviços</h3>
 			 @foreach($servicos as $s)
-			 <li><a href="/servicos/{{$s->id}}"> Nome: {{$s->nome}} | Tempo: {{$s->tempo}}</a></li>
+			 <li><a href="/servicos/{{$s->id}}"> Nome: {{$s->nome}} | Tempo:{{$s->tempo}} {{$s->tempo > 1 ?  "dias" : "dia"}}</a></li>
 			 @endforeach
 			</ul>
 		</div>

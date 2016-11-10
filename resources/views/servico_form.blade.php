@@ -12,12 +12,13 @@
 		}
 			
 	</style>
+	<h1>Cadastro Serviço</h1>
 	<form action="servicos" method="POST">
 		
 		<div class="form-group">
 			<label for="nome">Nome do Serviço:</label>
 			<input type="text" id="nome" name="nome" class="form-control">
-			<label for="tempo">Quantidade de Pessoas:</label>
+			<label for="tempo">Tempo do Serviço(Dias):</label>
 			<input type="number" id="tempo" name="tempo" value="0" min="0" class="form-control">
 			
 			<label for="coord">Coordenação do serviço:</label>

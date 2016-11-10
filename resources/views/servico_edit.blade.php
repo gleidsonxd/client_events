@@ -18,12 +18,13 @@
 		$servicos = json_decode($result);
 		//echo "Nome: ".$coords->{'nome'}." Email: ".$coords->{'email'};
 	 ?>
+	 <h1>Editar Serviços</h1>
 	 <div class="form-group">
 		<form action="/servicos/{{ $servicos->{'id'} }}" method="POST">
 			<label for="nome">Nome do Serviço:</label>
 			<input type="text" id="nome" name="nome" class="form-control" value="{{ $servicos->{'nome'} }}">
-			<label for="tempo">Quantidade de Pessoas:</label>
-			<input type="number" id="tempo" name="tempo" value="0" min="0" class="form-control" value="{{ $servicos->{'tempo'} }}">
+			<label for="tempo">Tempo do Serviço(Dias):</label>
+			<input type="number" id="tempo" name="tempo"  min="0" class="form-control" value="{{ $servicos->{'tempo'} }}">
 		
 			
 			<label for="coord">Coordenação do serviço:</label>

@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-	<h1>Lista</h1>
+	<h1>Coordenações</h1>
 	<div class="form-group">
 		<div class="well">
 			<ul>
@@ -12,7 +12,7 @@
 				// 	echo "<li><a href=".'"/coords/'.$c->{'id'}.'"'."> Nome: ".$c->{'nome'}." Email: ".$c->{'email'}."</a></li>";
 				// }
 			 ?>
-			 <h3>Coordenações</h3>
+			 
 			 @foreach($coords as $c)
 			 <li><a href="/coords/{{$c->id}}"> Nome: {{$c->nome}} | Email: {{$c->email}}</a></li>
 			 @endforeach

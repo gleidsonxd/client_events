@@ -12,6 +12,7 @@
 		}
 			
 	</style>
+	<h1>Cadastro Coordenação</h1>
 	<form action="coords" method="POST">
 		
 		<div class="form-group">

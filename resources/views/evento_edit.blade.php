@@ -9,6 +9,7 @@
 			padding-right:10%;
 			padding-top: 1%;
 			padding-bottom: 1%;
+			
 		}
 			
 	</style>
@@ -49,14 +50,19 @@
 		$plli = explode(",", $lli);
 		$resl = array_diff($pli,$plli);
 		//FIM LUGARES MARCADOS 
-			
-		
+		$datei = new DateTime($eventos->data_ini);
+		$datef = new DateTime($eventos->data_fim);	
 	 ?>
+	 <h1>Editar Evento</h1>
 	<div class=" form-group">
 	<form action="/eventos/{{ $eventos->id }}" method="POST">
 			<label for="nome">Nome do Evento:</label>
 			<input type="text" class="form-control" name="nome" id="nome" value="{{ $eventos->nome }}">
-		
+			
+			<label for="criador">Criado por:</label>
+			<input type="text" class="form-control"  id="criador" value="{{ $eventos->usuario->nome }}" disabled>
+			<input type="hidden" value="{{ $eventos->usuario->id }}" name="criador">
+			
 			<label for="desc">Descrição do evento:</label>
 	  		<textarea class="form-control" rows="5" name="desc" id="desc">{{ $eventos->descricao }}</textarea>
 		
@@ -100,9 +106,10 @@
 			</select>
 	
 		<!--BOOTSTRAP DATEPICKER-->
-	
-			<input type="datetime" name="data_ini" value="{{ $eventos->data_ini }}" ><br>
-			<input type="datetime" name="data_fim" value="{{ $eventos->data_fim }}"><br>
+			<label for="data_ini">Data Inicial:</label>
+			<input type="datetime-local" name="data_ini" value="{{ $datei->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_ini">
+			<label for="data_fim">Data Final:</label>
+			<input type="datetime-local" name="data_fim" value="{{ $datef->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_fim"><br>
 			
 			
 			{{ csrf_field() }}

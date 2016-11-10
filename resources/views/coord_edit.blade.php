@@ -18,6 +18,7 @@
 		$coords = json_decode($result);
 		//echo "Nome: ".$coords->{'nome'}." Email: ".$coords->{'email'};
 	 ?>
+	 <h1>Editar Coordenação</h1>
 	<div class="form-group">
 		<form action="/coords/{{ $coords->id }}" method="POST">
 			<label for="nome">Nome da Coordenção:</label>

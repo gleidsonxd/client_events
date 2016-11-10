@@ -12,7 +12,8 @@
 		}
 			
 	</style>
-<?php $email = session('email')?>
+	<?php $email = session('email')?>
+	<h1>Cadastro Usuário</h1>
 	<form action="usuarios" method="POST">
 		
 		<div class="form-group">
