@@ -8,8 +8,10 @@ use App\Http\Requests;
 
 class EventosController extends Controller
 {
+	
     public function form()
     {
+    	$userpwd = "admin:admin";
     	if (session('logado')!= 1) {
 		return view("mlogin");
 		}
@@ -20,6 +22,8 @@ class EventosController extends Controller
     	$ch = curl_init();
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/servicos".$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	    
 
 
@@ -35,6 +39,8 @@ class EventosController extends Controller
 	   	$ch = curl_init();
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/lugars".$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	   
 
 
@@ -49,6 +55,7 @@ class EventosController extends Controller
     }
     public function create()
      {	
+     	$userpwd = "admin:admin";
      	if (session('logado')!= 1) {
 		return view("mlogin");
 		}
@@ -76,8 +83,12 @@ class EventosController extends Controller
 
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/eventos");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 		curl_setopt($ch, CURLOPT_POSTFIELDS, "$u");
 		curl_setopt($ch, CURLOPT_POST, 1);
+		
+	
 
 		$result = curl_exec($ch);
 		if (curl_errno($ch)) {
@@ -88,14 +99,18 @@ class EventosController extends Controller
     }
     public function listAll()
     {
+    	$userpwd = "admin:admin";
     	$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/eventos");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	
-
+		
 
 		$result = curl_exec($ch);
+		
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
 		}
@@ -104,6 +119,7 @@ class EventosController extends Controller
     }
     public function read($id)
     {
+    	$userpwd = "admin:admin";
     	if (session('logado')!= 1) {
 		return view("mlogin");
 		}
@@ -111,6 +127,8 @@ class EventosController extends Controller
 
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/eventos/".$id);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 		
 
 		$result = curl_exec($ch);
@@ -125,6 +143,7 @@ class EventosController extends Controller
     }
     public function edit()
     {
+    	$userpwd = "admin:admin";
     	if (session('logado')!= 1) {
 		return view("mlogin");
 		}
@@ -136,6 +155,9 @@ class EventosController extends Controller
 
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/servicos".$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
+	    
 	    
 	    $results = curl_exec($ch);
 	   
@@ -147,6 +169,8 @@ class EventosController extends Controller
 	   	$ch = curl_init();
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/lugars".$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 
 	    $resultl = curl_exec($ch);
 	   // echo $result;
@@ -161,6 +185,8 @@ class EventosController extends Controller
 
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/eventos/".$id);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 		
 		$result = curl_exec($ch);
 		if (curl_errno($ch)) {
@@ -173,7 +199,7 @@ class EventosController extends Controller
     }
     public function update($id)
     {
-    	
+    	$userpwd = "admin:admin";
     	
     	if (session('logado')!= 1) {
 		return view("mlogin");
@@ -214,6 +240,8 @@ class EventosController extends Controller
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, "$u");
 	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 
 
 	    $result = curl_exec($ch);
@@ -228,6 +256,7 @@ class EventosController extends Controller
     }
     public function delete($id)
     {
+    	$userpwd = "admin:admin";
     	if (session('logado')!= 1) {
 		return view("mlogin");
 		}
@@ -242,6 +271,8 @@ class EventosController extends Controller
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	    
 	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 
 
 	    $result = curl_exec($ch);
@@ -256,11 +287,14 @@ class EventosController extends Controller
 
     public function feed()
     {
-		
+		$userpwd = "admin:admin";
     	$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/eventos");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
+	
 	
 		$result = curl_exec($ch);
 		if (curl_errno($ch)) {

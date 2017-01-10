@@ -8,8 +8,8 @@
 	<div id='calendar'></div>
 	
 	
-	
-<a href="/index">Volta</a>
+<!--	
+<a href="/index">Volta</a>-->
 
  
 @endsection

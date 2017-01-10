@@ -33,5 +33,5 @@
 			<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top:10px;width:150px;">Cadastrar</button>
 		</div>
 	</form>
-	<a href="/index">Volta</a>
+	<!--<a href="/index">Volta</a>-->
 @endsection

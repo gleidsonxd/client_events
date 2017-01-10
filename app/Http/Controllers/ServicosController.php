@@ -15,6 +15,7 @@ class ServicosController extends Controller
 
 	public function form()
 	{
+		$userpwd = "admin:admin";
 		if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -28,6 +29,8 @@ class ServicosController extends Controller
 		}
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/coords".$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	    
 
 	    $result = curl_exec($ch);
@@ -41,6 +44,7 @@ class ServicosController extends Controller
 	}
     public function create()
     {
+    	$userpwd = "admin:admin";
 		if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -59,6 +63,8 @@ class ServicosController extends Controller
 
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/servicos");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 		curl_setopt($ch, CURLOPT_POSTFIELDS, "$u");
 		curl_setopt($ch, CURLOPT_POST, 1);
 
@@ -71,6 +77,7 @@ class ServicosController extends Controller
     }
     public function listAll()
     {
+    	$userpwd = "admin:admin";
    		if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -85,6 +92,8 @@ class ServicosController extends Controller
 		}
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/servicos".$u);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	
 
 
@@ -97,6 +106,7 @@ class ServicosController extends Controller
     }
     public function read($id)
     {
+    	$userpwd = "admin:admin";
 		if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -110,6 +120,8 @@ class ServicosController extends Controller
 		}
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/servicos/".$id.$u);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 		
 
 
@@ -125,6 +137,7 @@ class ServicosController extends Controller
     }
     public function edit()
     {
+    	$userpwd = "admin:admin";
     	if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -139,6 +152,8 @@ class ServicosController extends Controller
 
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/coords".$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	   
 	    
 
@@ -155,6 +170,8 @@ class ServicosController extends Controller
 	   	$ch = curl_init();
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/servicos/".$id.$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	   
 
 	    $result = curl_exec($ch);
@@ -168,6 +185,7 @@ class ServicosController extends Controller
     }
     public function update($id)
     {
+    	$userpwd = "admin:admin";
     	if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -183,6 +201,8 @@ class ServicosController extends Controller
 
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/servicos/".$id);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, "$u");
 	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 
@@ -199,6 +219,7 @@ class ServicosController extends Controller
     }
     public function delete($id)
     {
+    	$userpwd = "admin:admin";
     	if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -214,6 +235,8 @@ class ServicosController extends Controller
 
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/servicos/".$id.$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	    
 	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
 

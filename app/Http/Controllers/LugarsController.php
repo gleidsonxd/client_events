@@ -20,6 +20,7 @@ class LugarsController extends Controller
     }
     public function create()
     {
+    	$userpwd = "admin:admin";
     	if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -37,6 +38,8 @@ class LugarsController extends Controller
 
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/lugars");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 		curl_setopt($ch, CURLOPT_POSTFIELDS, "$u");
 		curl_setopt($ch, CURLOPT_POST, 1);
 
@@ -50,6 +53,7 @@ class LugarsController extends Controller
     }
 	public function listAll()
 	{	
+		$userpwd = "admin:admin";
 		if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -65,6 +69,8 @@ class LugarsController extends Controller
 
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/lugars".$u);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 		
 
 
@@ -77,6 +83,7 @@ class LugarsController extends Controller
 	}
 	public function read($id)
 	{	
+		$userpwd = "admin:admin";
 		if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -92,6 +99,8 @@ class LugarsController extends Controller
 		
 		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/lugars/".$id.$u);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 		
 
 
@@ -104,6 +113,7 @@ class LugarsController extends Controller
 	}
 	public function edit()
 	{
+		$userpwd = "admin:admin";
 		if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -118,6 +128,8 @@ class LugarsController extends Controller
 	   	$ch = curl_init();
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/lugars/".$id.$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	    
 
 
@@ -132,6 +144,7 @@ class LugarsController extends Controller
 	}
 	public function update($id)
 	{
+		$userpwd = "admin:admin";
 		if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -149,6 +162,8 @@ class LugarsController extends Controller
 
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/lugars/".$id);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, "$u");
 	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 
@@ -165,6 +180,7 @@ class LugarsController extends Controller
 	}
 	public function delete($id)
 	{
+		$userpwd = "admin:admin";
 		if (session('logado')!= 1){
 		return view("mlogin");
 		}
@@ -180,6 +196,8 @@ class LugarsController extends Controller
 
 	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/lugars/".$id.$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
 	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
 
 

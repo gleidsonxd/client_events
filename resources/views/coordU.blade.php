@@ -21,5 +21,5 @@
 			
 		</form>
 	</div>
-	<br><br><a href="/index">Volta</a>
+	<!--<br><br><a href="/index">Volta</a>-->
 @endsection

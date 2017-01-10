@@ -40,5 +40,5 @@
 			<input type="hidden" value="DELETE" name="_method">
 		</form>
 	</div
-	<a href="/index">Volta</a>
+
 @endsection

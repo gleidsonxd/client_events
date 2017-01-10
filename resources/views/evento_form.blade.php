@@ -30,7 +30,7 @@
 				$servicos = json_decode($results);
 					foreach ($servicos as $servico) {
 				?>	
-				<option value="{{ $servico->id }}"> {{ $servico->nome }}</option>
+				<option value="{{ $servico->id }}"> {{ $servico->nome }} - (Tempo: {{$servico->tempo}} {{$servico->tempo > 1 ?  "dias" : "dia"}})</option>
 				<?php	
 					}
 				 ?>
@@ -53,7 +53,7 @@
 					foreach ($lugares as $lugar) {
 				?>	
 	
-				<option value="{{ $lugar->id }}"> {{ $lugar->nome }}</option>
+				<option value="{{ $lugar->id }}"> {{ $lugar->nome }} - (Quantidade de Pessoas: {{$lugar->quantidade}})</option>
 				<?php	
 					}
 				 ?>
@@ -70,5 +70,5 @@
 		</div>
 		
 	</form>
-	<a href="/index">Volta</a>
+	<!--<a href="/index">Volta</a>-->
 @endsection

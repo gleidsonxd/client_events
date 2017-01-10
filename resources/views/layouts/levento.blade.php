@@ -50,8 +50,8 @@
  			 background-color: #00420c;
 	    padding-top: 5%;
 	    /*margin-top: 5%;*/
-	    margin-right: 15%;
-	    margin-left: 15%;
+	    /*margin-right: 15%;*/
+	    /*margin-left: 15%;*/
 	    padding-bottom: 5%;
 	    margin-bottom: 5%;
 		}
@@ -62,8 +62,8 @@
 		}
 		.footer {
       margin-top: 5%;
-      margin-right: 15%;
-      margin-left: 15%;
+      /*margin-right: 15%;*/
+      /*margin-left: 15%;*/
       bottom: 0;
       background-color: #00420c;
     }
@@ -73,6 +73,7 @@
     a:link {
       text-decoration: none;
     }
+    
     </style>
 </head>
 <body>
@@ -86,7 +87,7 @@
     <!--Banner-->
 
 			<!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-left:15%;margin-right:15%; min-width:50%">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -153,15 +154,17 @@
             </li>
             @endif
           </ul>
-          <ul class="nav navbar-nav navbar-right" style="color:white">
+          <ul class="nav navbar-nav navbar-right" style="color:white;">
+          
 	     	<?php @$email = session('email'); @$logado = session('logado'); ?>
-			{{ isset($email) ? $email : 'Default'}}
+			{{ isset($email) ? $email : 'Visitante'}}
 			@if ($logado == true)
 			<a href="/sair" <span class="glyphicon glyphicon-log-out"></span>Sair</a><br>
 			@else
-			<a href="/">Voltar</a><br>
+			
 			<a href="/mlogin"><span class="glyphicon glyphicon-log-in"></span> Login</a>
 			@endif
+			
 	   	 </ul>
           
         </div><!--/.nav-collapse -->
