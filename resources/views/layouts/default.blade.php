@@ -57,7 +57,7 @@
       <div class="banner">
         
      
-        <h1 style="color:white; text-align: center" style="float:right;">IFPB - EVENTOS</h1>  
+        <h1 style="color:white; text-align: center" style="float:right;">Campus JP - EVENTOS</h1>  
         
         
       </div>
@@ -96,14 +96,14 @@
                 <li><a href="/form_lugar">Cadastrar Lugars</a></li>
               </ul>
             </li>
-            <li class="dropdown">
+            <!--<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/usuarios">Listar Usuarios</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/form_usuario">Cadastrar Usuarios</a></li>
               </ul>
-            </li>
+            </li>-->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicos <span class="caret"></span></a>
               <ul class="dropdown-menu">

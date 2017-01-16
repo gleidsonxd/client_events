@@ -45,7 +45,7 @@
 	
 	<div class="jumbotron" style="background-color:#00420c">
       <div class="banner">
-        <h1 style="color:white; text-align: center">IFPB - EVENTOS</h1>
+        <h1 style="color:white; text-align: center">Campus JP - EVENTOS</h1>
       </div>
     </div>
     <!--Banner-->
@@ -55,9 +55,9 @@
       <form class="form-signin" action="\login" method="POST"  onSubmit="return validate(this);" name="form_mlogin">
         <h2 class="form-signin-heading">Please sign in</h2>
         	<label for="inputEmail" class="sr-only">Email address</label>
-			Email: <input type="text" value="email4@ifpb.edu.br" name="email" id="inputEmail" class="form-control" required autofocus> <!--^[a-z0-9._%+-]+@ifpb\.edu\.br$-->
-			<label for="inputPassword" class="sr-only">Password</label>
-       		<!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>-->
+					Email: <input type="text" value="email4@ifpb.edu.br" name="email" id="inputEmail" class="form-control" required autofocus> <!--^[a-z0-9._%+-]+@ifpb\.edu\.br$-->
+					<label for="inputPassword" class="sr-only">Password</label>
+      		<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
 

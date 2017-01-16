@@ -71,9 +71,13 @@ class ServicosController extends Controller
 		$result = curl_exec($ch);
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
+		    return view('servicoeors',array('erro'=>"Ocorreu um erro ao criar o Serviço!"));
+		}
+		else{
+			return view('servicoeors',array('sucesso'=>"Serviço criado com sucesso!"));
 		}
 		curl_close ($ch);
-		return view("index");
+		/*return view("index");*/
     }
     public function listAll()
     {
@@ -210,12 +214,14 @@ class ServicosController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
+	        return view('servicoeors',array('erro'=>"Ocorreu um erro ao editar o Serviço!"));
 	    }else{
-	    	echo $result;
+	    	/*echo $result;*/
+	    	return view('servicoeors', array('result' => $result))->with('sucesso', "Serviço editado com sucesso!");
 	    }
 	    curl_close ($ch);
 
-	    echo "<br><br><a href='/index'>Volta</a>";
+	    /*echo "<br><br><a href='/index'>Volta</a>";*/
     }
     public function delete($id)
     {
@@ -244,10 +250,11 @@ class ServicosController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
+	        return view('servicoeors',array('erro'=>"Ocorreu um erro ao remover o Serviço!"));
 	    }else{
-	    	echo $result;
+	    	return view('servicoeors',array('sucesso'=>"Serviço removido com sucesso!"));
 	    }
 	    curl_close ($ch);
-	    echo "<br><br><a href='/index'>Volta</a>";
+	    /*echo "<br><br><a href='/index'>Volta</a>";*/
     }
 }

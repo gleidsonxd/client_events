@@ -53,9 +53,13 @@ class CoordsController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
+	        return view('coordeors',array('erro'=>"Ocorreu um erro ao criar a Coordenação!"));
+	    }else{
+	    	return view('coordeors',array('sucesso'=>"Coordenação criada com sucesso!"));
 	    }
+	    
 	    curl_close ($ch);
-	    return view("index");
+	    
 		
 	}
 
@@ -191,12 +195,15 @@ class CoordsController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
+	        return view('coordeors',array('erro'=>"Ocorreu um erro ao editar a Coordenação!"));
 	    }else{
-	    	echo $result;
+	    	/*$sucesso = array('sucesso' =>"Coordenação editada com sucesso!");
+	    	echo $result;*/
+	    	return view('coordeors', array('result' => $result))->with('sucesso', "Coordenação editada com sucesso!");
 	    }
 	    curl_close ($ch);
 
-	    echo "<br><br><a href='/'>Volta</a>";
+	    // echo "<br><br><a href='/'>Volta</a>";
 
 
 	}
@@ -228,11 +235,13 @@ class CoordsController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
+	        return view('coordeors',array('erro'=>"Ocorreu um erro ao remover a Coordenação!"));
 	    }else{
-	    	echo $result;
+	    	
+	    	return view('coordeors',array('sucesso'=>"Coordenação removida com sucesso!"));
 	    }
 	    curl_close ($ch);
-	    echo "<br><br><a href='/eventos'>Volta</a>";
+	    // echo "<br><br><a href='/eventos'>Volta</a>";
 	}
 	
 }

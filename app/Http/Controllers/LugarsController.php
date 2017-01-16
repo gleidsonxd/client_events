@@ -46,9 +46,12 @@ class LugarsController extends Controller
 		$result = curl_exec($ch);
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
-		}
+		    return view('lugareors',array('erro'=>"Ocorreu um erro ao criar o Lugar!"));
+		}else{
+	    	return view('lugareors',array('sucesso'=>"Lugar criado com sucesso!"));
+	    }
 		curl_close ($ch);
-		return view("index");
+		/*return view("index");*/
 
     }
 	public function listAll()
@@ -171,12 +174,15 @@ class LugarsController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
+	        return view('lugareors',array('erro'=>"Ocorreu um erro ao editar o Lugar!"));
 	    }else{
-	    	echo $result;
+	    	//$sucesso = array('sucesso' =>"Lugar editado com sucesso!");
+	    	//echo $result;
+	    	return view('lugareors', array('result' => $result))->with('sucesso', "Lugar editado com sucesso!");
 	    }
 	    curl_close ($ch);
 
-	    echo "<br><br><a href='/'>Volta</a>";
+	    /*echo "<br><br><a href='/'>Volta</a>";*/
 	}
 	public function delete($id)
 	{
@@ -204,11 +210,12 @@ class LugarsController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
+	        return view('lugareors',array('erro'=>"Ocorreu um erro ao remover o Lugar!"));
 	    }else{
-	    	echo $result;
+	    	return view('lugareors',array('sucesso'=>"Lugar removido com sucesso!"));
 	    }
 	    curl_close ($ch);
-	    echo "<br><br><a href='/'>Volta</a>";
+	    // echo "<br><br><a href='/'>Volta</a>";
 	}
 
 }
