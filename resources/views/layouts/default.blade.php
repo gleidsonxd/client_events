@@ -15,16 +15,16 @@
 	     
 	      
 	    }
-    	.jumbotron {
-   			 background-color: #00420c;
-		    padding-top: 5%;
+  /*  	.jumbotron {*/
+  /* 			 background-color: #00420c;*/
+		/*    padding-top: 5%;*/
 		    /*margin-top: 5%;*/
 		    /*margin-right: 15%;*/
 		    /*margin-left: 15%;*/
-		    padding-bottom: 5%;
-		    margin-bottom: 5%;
+		/*    padding-bottom: 5%;*/
+		/*    margin-bottom: 5%;*/
 		    /*min-width:50%;*/
-		}
+		/*}*/
 		.footer {
          
       margin-top: 5%;
@@ -53,7 +53,7 @@
     </style>
 </head>
 <body>
-	  <div class="jumbotron" style="background-color:#00420c;">
+	  <div class="jumbotron" style="background-color:#00420c;padding-bottom: 5%;padding-top: 5%;">
       <div class="banner">
         
      
@@ -132,16 +132,25 @@
             @endif
           </ul>
           <ul class="nav navbar-nav navbar-right" style="color:white">
-	     	<?php @$email = session('email'); @$logado = session('logado'); ?>
-			{{ isset($email) ? $email : 'Visitante'}}
-			@if ($logado == true)
-			<a href="/sair" <span class="glyphicon glyphicon-log-out"></span>Sair</a><br>
-			@else
-			<!--<a href="/">Voltar</a><br>-->
-			<li><a href="/mlogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-			@endif
-			
-	     	 
+  	     	<?php @$email = session('email'); @$logado = session('logado'); ?>
+      	     	<li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          			{{ isset($email) ? $email : 'Visitante'}}<span class="caret"></span>
+          			</a>
+          			<ul class="dropdown-menu">
+            			@if($email)
+            			  <li><a href="/myacc" <span class="glyphicon glyphicon-user"></span>Perfil</a></li>
+            			@endif
+            		<li class="divider"></li>
+            			@if ($logado == true)
+            		    <li><a href="/sair" <span class="glyphicon glyphicon-log-out"></span>Sair</a></li>
+            			@else
+            		    <li><a href="/mlogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            			@endif
+                </ul>
+              </li>
+  			
+  	     	 
 	    </ul>
           
         </div><!--/.nav-collapse -->

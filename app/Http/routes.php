@@ -16,14 +16,16 @@ Route::get('/', function () {
     return view('/mlogin');
 });
 Route::get('/index', 'HomeController@index');
-Route::get('/noadmin', 'HomeController@noadmin');
-Route::get('feed','EventosController@feed');
+Route::get('/noadmin', 'HomeController@noadmin');#erro de admin
+Route::get('/feed','EventosController@feed'); #rota para passar os eventos para o calendario
+
 Route::get('/mlogin', function () {
     return view('mlogin');
 });
 
+#Rota logout
 Route::get('/sair','UsuariosController@logout');
-
+#Rota login
 Route::post('/login','UsuariosController@login');
 
 // Route::auth();
@@ -54,8 +56,11 @@ Route::put('servicos/{id}','ServicosController@update');
 Route::delete('servicos/{id}','ServicosController@delete');
 
 //Rotas Usuarios MODIFICAR
+#Rota conta do usuario
+Route::get('/myacc','UsuariosController@account');
 Route::get('form_usuario','UsuariosController@form');
 Route::post('editar_usuario', 'UsuariosController@edit');
+Route::post('editar_conta/{id}', 'UsuariosController@editacc');
 
 
 Route::post('usuarios','UsuariosController@create');

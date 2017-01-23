@@ -35,13 +35,13 @@
 			<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top:10px;width:150px;">Atualizar</button>
 			<input type="hidden" value="PUT" name="_method">
 		</form>
-	
+		@if(@$acc != true)
 		<form action="/usuarios/{{ $usuarios->id }}" method="POST">
 			{{ csrf_field() }}
 			<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top:10px;width:150px;">Deletar</button>
 			<input type="hidden" value="DELETE" name="_method">
 		</form>
-		
+		@endif
 	</div>
 	<!--<a href="/index">Volta</a>-->
 @endsection

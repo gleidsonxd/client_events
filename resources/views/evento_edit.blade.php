@@ -22,37 +22,51 @@
 		$serv = $eventos->servicos;
 		$lug = $eventos->lugars;
 		
-		// EXIBIR OS SERVICOS ESCOLHIDOS MARCADOS
-		foreach($servicos as $s){
-			@$si .="". $s->id.",";
+		if ($serv != null) {
+			// EXIBIR OS SERVICOS ESCOLHIDOS MARCADOS
+			foreach($servicos as $s){
+				@$si .="". $s->id.",";
+			}
+			$si= substr($si,0,-1);
+			foreach($serv as $s){
+				@$ssi .="". $s->id.",";
+			}
+			$ssi =substr($ssi,0,-1);
+			$psi = explode(",", $si);
+			$pssi = explode(",", $ssi);
+			$ress = array_diff($psi,$pssi);
+			//FIM SERVICOS MARCADOS 
 		}
-		$si= substr($si,0,-1);
-		foreach($serv as $s){
-			@$ssi .="". $s->id.",";
-		}
-		$ssi =substr($ssi,0,-1);
-		$psi = explode(",", $si);
-		$pssi = explode(",", $ssi);
-		$ress = array_diff($psi,$pssi);
-		//FIM SERVICOS MARCADOS 
 		
-		// EXIBIR OS LUGARES ESCOLHIDOS MARCADOS
-		foreach($lugars as $l){
-			@$li .="". $l->id.",";
-		}
-		$li= substr($li,0,-1);
-		foreach($lug as $l){
-			@$lli .="". $l->id.",";
+		if ($lug != null) {
+			// EXIBIR OS LUGARES ESCOLHIDOS MARCADOS
+			foreach($lugars as $l){
+				@$li .="". $l->id.",";
+			}
+			$li= substr($li,0,-1);
+			foreach($lug as $l){
+				@$lli .="". $l->id.",";
+			 
+			}
+			$lli =substr($lli,0,-1);
+			$pli = explode(",", $li);
+			$plli = explode(",", $lli);
+			$resl = array_diff($pli,$plli);
+			//FIM LUGARES MARCADOS
+		} 
+		
 		 
-		}
-		$lli =substr($lli,0,-1);
-		$pli = explode(",", $li);
-		$plli = explode(",", $lli);
-		$resl = array_diff($pli,$plli);
-		//FIM LUGARES MARCADOS 
 		$datei = new DateTime($eventos->data_ini);
 		$datef = new DateTime($eventos->data_fim);	
 	 ?>
+	 <div class="jumbotron" style = "background-color: #999999;margin-bottom:5%; padding-top:0px;">
+        <h3 style ="text-align:center">Importante</h3>    
+        <ul style ="text-align:left">
+          <b><li>É necessário reservar o lugar no SUAP.</li></b>
+          <b><li>Não marque eventos em finais de semana ou feriados.</li></b>
+          <b><li>Eventos independentes, que não necessitam dos serviços das coordenações, não poderão solicitar apoio das mesmas no futuro.</li></b>
+        </ul>
+     </div>
 	 <h1>Editar Evento</h1>
 	<div class=" form-group">
 	<form action="/eventos/{{ $eventos->id }}" method="POST">
@@ -67,6 +81,7 @@
 	  		<textarea class="form-control" rows="5" name="desc" id="desc">{{ $eventos->descricao }}</textarea>
 		
 			<label for="servicos">Servicos:</label>
+			@if($serv != null)
 		    <select class="form-control" id="servicos" name="servicos[]" multiple="multiple">
 		    	<!--<option value="" disabled>---</option>-->
 				@foreach($servicos as $s)
@@ -84,9 +99,16 @@
 					@endforeach
 				@endforeach
 		    </select>
-		
-			
+		    
+			@else
+			<select class="form-control" id="servicos" name="servicos[]" multiple="multiple" disabled>
+				@foreach($servicos as $s)
+					<option value="{{ $s->id }}" >{{ $s->nome }}</option>
+				@endforeach
+			</select>
+			@endif
 			<label for="lugares">Lugares:</label>
+			@if($lug != null)
 			<select class="form-control" id="lugares" name="lugares[]" multiple="multiple">
 				<!--<option value="" disabled>---</option>-->
 				@foreach($lugars as $l)
@@ -104,7 +126,13 @@
 					@endforeach
 				@endforeach
 			</select>
-	
+			@else
+			<select class="form-control" id="lugares" name="lugares[]" multiple="multiple" disabled>
+				@foreach($lugars as $l)
+					<option value="{{ $l->id }}" >{{ $l->nome }}</option>
+				@endforeach
+			</select>
+			@endif
 		<!--BOOTSTRAP DATEPICKER-->
 			<label for="data_ini">Data Inicial:</label>
 			<input type="datetime-local" name="data_ini" value="{{ $datei->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_ini">
