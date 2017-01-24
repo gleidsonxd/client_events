@@ -295,16 +295,17 @@ class EventosController extends Controller
 
 
 	    $result = curl_exec($ch);
-	    //var_dump(json_decode($result,true));
-	    echo strlen($result);
+	    #var_dump(json_decode($result,true));
+	   # echo strlen($result);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
 	    }
-	    if(strlen($result) > 23){
-	        return view('eventoeors',array('erro'=>"Ocorreu um erro ao remover o Evento!"));
+	    if(strpos($result,'Error')){
+	    	return view('eventoeors',array('erro'=>"Ocorreu um erro ao remover o Evento!"));
 	    }else{
 	    	return view('eventoeors',array('sucesso'=>"Evento removido com sucesso!"));
 	    }
+	    
 	    curl_close ($ch);
 	    /*echo "<br><br><a href='/index'>Volta</a>";*/
     }

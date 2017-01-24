@@ -96,7 +96,7 @@
                 <li><a href="/form_lugar">Cadastrar Lugars</a></li>
               </ul>
             </li>
-            <!--<li class="dropdown">
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/usuarios">Listar Usuarios</a></li>
@@ -125,8 +125,10 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventos <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/eventos">Listar Eventos</a></li>
+                @if(session('logado')==1)
                 <li role="separator" class="divider"></li>
                 <li><a href="/form_evento">Cadastrar Eventos</a></li>
+                @endif
               </ul>
             </li>
             @endif
@@ -138,7 +140,8 @@
           			{{ isset($email) ? $email : 'Visitante'}}<span class="caret"></span>
           			</a>
           			<ul class="dropdown-menu">
-            			@if($email)
+          			  
+            			@if($email && session('logado')==1)
             			  <li><a href="/myacc" <span class="glyphicon glyphicon-user"></span>Perfil</a></li>
             			@endif
             		<li class="divider"></li>

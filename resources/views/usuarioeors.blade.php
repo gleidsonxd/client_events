@@ -11,8 +11,8 @@ if(isset($result)){
 @if (isset($result))
 <br><br>
 <h3>Usuario</h3>
-<p>Nome: {{ $usuarios->nome }}</p> 
-<p>Email: {{$usuarios->email}}</p> 
-<p>Matricula: {{$usuarios->matricula}}</p>
+<p>Nome: {{ @$usuarios->nome }}</p> 
+<p>Email: {{@$usuarios->email}}</p> 
+<p>Matricula: {{@$usuarios->matricula}}</p>
 @endif
 @endsection

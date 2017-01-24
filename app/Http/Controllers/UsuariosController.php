@@ -42,9 +42,20 @@ class UsuariosController extends Controller
 		curl_setopt($ch, CURLOPT_POST, 1);
 
 		$result = curl_exec($ch);
+	#	echo $result;
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
 		}
+		if (strpos($result, "Blank")) {
+	    	return view('usuarioeors',array('erro'=>"Ocorreu um erro ao cadastrar o Usuário!"));
+	    } elseif(strpos($result,"Error")) {
+	    	return view('usuarioeors',array('erro'=>"Email já cadastrado!"));
+	    }else{
+	    	return view('usuarioeors',array('sucesso'=>"Usuário cadastrado com sucesso!"));
+	    }
+		// else{
+		// 	#return view('usuarioeors',array('sucesso'=>"Usuário cadastrado com sucesso!"));
+		// }
 		curl_close ($ch);
 		#return view("index");
     }
@@ -164,16 +175,22 @@ class UsuariosController extends Controller
 
 
 	    $result = curl_exec($ch);
+	    echo $result;
+	    
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
-	        return view('usuarioeors',array('erro'=>"Ocorreu um erro ao editar o Usuario!"));
-	    }else{
+	        return view('usuarioeors',array('erro'=>"Ocorreu um erro ao editar o Usuário!"));
+	    }
+	    if(strpos($result,"Error")) {
+	    	return view('usuarioeors',array('erro'=>"Email já cadastrado!"));
+	    }
+	    else{
 	    	#echo $result;
-	    	return view('usuarioeors', array('result' => $result))->with('sucesso', "Usuario editado com sucesso!");
+	    	return view('usuarioeors', array('result' => $result))->with('sucesso', "Usuário editado com sucesso!");
 	    }
 	    curl_close ($ch);
 
-	    // echo "<br><br><a href='/index'>Volta</a>";
+	    
     }
     public function delete($id)
     {
@@ -201,8 +218,9 @@ class UsuariosController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
+	        return view('usuarioeors',array('erro'=>"Ocorreu um erro ao remover o Usuário!"));
 	    }else{
-	    	echo $result;
+	    	return view('usuarioeors',array('sucesso'=>"Usuário removido com sucesso!"));
 	    }
 	    curl_close ($ch);
 	    // echo "<br><br><a href='/index'>Volta</a>";

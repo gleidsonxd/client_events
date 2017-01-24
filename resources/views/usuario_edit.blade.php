@@ -22,12 +22,17 @@
 	<div class="form-group">
 		<form action="/usuarios/{{ $usuarios->id }}" method="POST">
 			<label for="nome">Nome do Usuario:</label>
-			<input type="text" id="nome" name="nome" class="form-control" value="{{ $usuarios->{'nome'} }}">
+			<input type="text" id="nome" name="nome" class="form-control" value="{{ $usuarios->{'nome'} }}" required>
 			<label for="matricula">Matricula:</label>
-			<input type="text" id="matricula" name="matricula" class="form-control" value="{{ $usuarios->{'matricula'} }}">
+			<input type="text" id="matricula" name="matricula" class="form-control" value="{{ $usuarios->{'matricula'} }}" required>
 			<label for="email">Email:</label>
-			<input type="email" id="email" name="email"  class="form-control"value="{{ $usuarios->{'email'} }}">
-			
+			<input type="email" id="email" name="email"  class="form-control"value="{{ $usuarios->{'email'} }}" required>
+			@if(session('adm') != false)
+			<label for="coord">Coordenação:</label>
+			<input type="checkbox" name="coord" id="coord">
+			<label for="admin">Administrador:</label>
+			<input type="checkbox" name="admin" id="admin">
+			@endif
 			
 	
 			

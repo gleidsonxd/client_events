@@ -62,9 +62,10 @@
 	 <div class="jumbotron" style = "background-color: #999999;margin-bottom:5%; padding-top:0px;">
         <h3 style ="text-align:center">Importante</h3>    
         <ul style ="text-align:left">
-          <b><li>É necessário reservar o lugar no SUAP.</li></b>
-          <b><li>Não marque eventos em finais de semana ou feriados.</li></b>
-          <b><li>Eventos independentes, que não necessitam dos serviços das coordenações, não poderão solicitar apoio das mesmas no futuro.</li></b>
+        	<b><li>O evento so pode ser alterado, durante 30% do tempo do menor serviço.</li></b>
+          	<b><li>É necessário reservar o lugar no SUAP.</li></b>
+          	<b><li>Não marque eventos em finais de semana ou feriados.</li></b>
+          	<b><li>Eventos independentes, que não necessitam dos serviços das coordenações, não poderão solicitar apoio das mesmas no futuro.</li></b>
         </ul>
      </div>
 	 <h1>Editar Evento</h1>
