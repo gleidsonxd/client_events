@@ -54,6 +54,11 @@ class CoordsController extends Controller
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
 	        return view('coordeors',array('erro'=>"Ocorreu um erro ao criar a Coordenação!"));
+	    }
+	    if(strpos($result,'Blank')){
+	    	return view('coordeors',array('erro'=>"Ocorreu um erro ao criar a Coordenação!"));
+	    }elseif(strpos($result,"Error")) {
+	    	return view('coordeors',array('erro'=>"Email já cadastrado!"));
 	    }else{
 	    	return view('coordeors',array('sucesso'=>"Coordenação criada com sucesso!"));
 	    }

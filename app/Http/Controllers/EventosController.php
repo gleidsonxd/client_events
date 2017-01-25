@@ -15,6 +15,9 @@ class EventosController extends Controller
     	if (session('logado')!= 1) {
 		return view("mlogin");
 		}
+		if (session('tcoord')) {
+		return view("noadmin");
+		}
     	$idu = session('id');
 		if (isset($idu)){
 			$u = "?usuarioid=".$idu;
@@ -59,6 +62,9 @@ class EventosController extends Controller
      	if (session('logado')!= 1) {
 		return view("mlogin");
 		}
+		if (session('tcoord')) {
+		return view("noadmin");
+		}
      	if (isset($_POST['servicos'])) {
      		$aS = $_POST['servicos'];
     		$s = implode(",", $aS);
@@ -91,8 +97,8 @@ class EventosController extends Controller
 	
 
 		$result = curl_exec($ch);
-		/*var_dump(json_decode($result));
-		echo $result;*/
+		var_dump(json_decode($result));
+		echo $result;
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
 		}
@@ -156,6 +162,9 @@ class EventosController extends Controller
     	if (session('logado')!= 1) {
 		return view("mlogin");
 		}
+		if (session('tcoord')) {
+		return view("noadmin");
+		}
     	$idu = session('id');
 		if (isset($idu)){
 			$u = "?usuarioid=".$idu;
@@ -212,6 +221,9 @@ class EventosController extends Controller
     	
     	if (session('logado')!= 1) {
 		return view("mlogin");
+		}
+		if (session('tcoord')) {
+		return view("noadmin");
 		}
 		
 		if (isset($_POST['servicos'])) {
@@ -278,6 +290,9 @@ class EventosController extends Controller
     	$userpwd = "admin:admin";
     	if (session('logado')!= 1) {
 		return view("mlogin");
+		}
+		if (session('tcoord')) {
+		return view("noadmin");
 		}
 		$idu = session('id');
 		if (isset($idu)){

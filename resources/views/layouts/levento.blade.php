@@ -77,7 +77,7 @@
       </div>
     </div>
     <!--Banner-->
-
+  
 			<!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -135,6 +135,20 @@
                 <li><a href="/form_evento">Cadastrar Eventos</a></li>
               </ul>
             </li>
+            
+            @elseif(session('tcoord'))
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventos <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/eventos">Listar Eventos</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventos da Coordenação <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/coorduser">Listar Eventos da Coordenação</a></li>
+              </ul>
+            </li>
             @else
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventos <span class="caret"></span></a>
@@ -157,10 +171,10 @@
         			{{ isset($email) ? $email : 'Visitante'}}<span class="caret"></span>
         			</a>
         			<ul class="dropdown-menu">
-          			@if($email && session('logado')==1)
+          			@if($email && session('logado')==1 && session('tcoord') != 1)
           			  <li><a href="/myacc" <span class="glyphicon glyphicon-user"></span>Perfil</a></li>
+          			  <li class="divider"></li>
           			@endif
-          		<li class="divider"></li>
           			@if ($logado == true)
           		    <li><a href="/sair" <span class="glyphicon glyphicon-log-out"></span>Sair</a></li>
           			@else

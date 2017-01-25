@@ -17,7 +17,7 @@
 		
 		<div class="form-group">
 		<label for="nome">Nome da Coordenção:</label>
-		<input type="text" class="form-control" name="nome" id="nome" >
+		<input type="text" class="form-control" name="nome" id="nome" required>
 		<label for="email">Email da Coordenção</label>
 		<input type="email" name="email" id="email" class="form-control" required>
 		

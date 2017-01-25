@@ -36,25 +36,15 @@
 			<label for="servicos">Servicos:</label>
 		    <select class="form-control" id="servicos" name="servicos[]" multiple="multiple">
 		    	<?php 
-				$servicos = json_decode($results);
-					foreach ($servicos as $servico) {
+				@$servicos = json_decode($results);
+					foreach (@$servicos as $servico) {
 				?>	
-				<option value="{{ $servico->id }}"> {{ $servico->nome }} - (Tempo: {{$servico->tempo}} {{$servico->tempo > 1 ?  "dias" : "dia"}})</option>
+				<option value="{{ @$servico->id }}"> {{ @$servico->nome }} - (Tempo: {{@$servico->tempo}} {{@$servico->tempo > 1 ?  "dias" : "dia"}})</option>
 				<?php	
 					}
 				 ?>
 		    </select>
-			<!--<select name="servicos[]" multiple="multiple">-->
-			<!--	// <?php
-				// $servicos = json_decode($results);
-				// 	foreach ($servicos as $servico) {
-				?>	-->
-	
-			<!--	<option value="{{ $servico->id }}"> {{ $servico->nome }}</option>-->
-			<!--	<?php
-					// }
-				 ?>-->
-			<!--</select><br>-->
+			
 			<label for="lugares">Lugares:</label>
 			<select class="form-control" id="lugares" name="lugares[]" multiple="multiple">
 				<?php 

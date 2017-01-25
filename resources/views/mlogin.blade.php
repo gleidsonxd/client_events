@@ -55,7 +55,7 @@
       <form class="form-signin" action="\login" method="POST"  onSubmit="return validate(this);" name="form_mlogin">
         <h2 class="form-signin-heading">Please sign in</h2>
         	<label for="inputEmail" class="sr-only">Email address</label>
-					Email: <input type="text" value="email4@ifpb.edu.br" name="email" id="inputEmail" class="form-control" required autofocus> <!--^[a-z0-9._%+-]+@ifpb\.edu\.br$-->
+					Email: <input type="text" value="noadmin@ifpb.edu.br" name="email" id="inputEmail" class="form-control" required autofocus> <!--^[a-z0-9._%+-]+@ifpb\.edu\.br$-->
 					<label for="inputPassword" class="sr-only">Password</label>
       		<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
