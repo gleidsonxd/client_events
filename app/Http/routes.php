@@ -62,6 +62,8 @@ Route::get('form_usuario','UsuariosController@form');
 Route::post('editar_usuario', 'UsuariosController@edit');
 Route::post('editar_conta/{id}', 'UsuariosController@editacc');
 Route::get('coorduser','UsuariosController@listcoorduserevents');#rota prar usuario tipo coord
+Route::get('coorduserall','UsuariosController@listcoordusereventsall');#rota prar usuario tipo coord
+
 
 Route::post('usuarios','UsuariosController@create');
 Route::get('usuarios','UsuariosController@listAll');

@@ -400,5 +400,44 @@ class UsuariosController extends Controller
 		
 		return view('eventos_coord', compact('resulte','resultc'));
     }
+    public function listcoordusereventsall()
+    {
+    	if (session('tcoord') != 1) {
+		return view("noadmin");
+		}
+    	
+    	$userpwd = "admin:admin";
+    	
+    	$idu = session('id');
+		if (isset($idu)){
+			$u = "?usuarioid=".$idu;
+		}
+    	$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/eventos");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
+
+		$resulte = curl_exec($ch);
+		
+		$ch = curl_init();
+
+	    curl_setopt($ch, CURLOPT_URL, "eventos-gleidsonxd.c9users.io/coords".$u);
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, "$userpwd");
+	   
+	    $resultc = curl_exec($ch);
+		
+		if (curl_errno($ch)) {
+		    echo 'Error:' . curl_error($ch);
+		}
+		curl_close ($ch);
+		
+		
+		return view('eventos_coord_all', compact('resulte','resultc'));
+    }
+    
     
 }

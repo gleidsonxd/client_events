@@ -131,7 +131,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventos da Coordenação <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/coorduser">Listar Eventos da Coordenação</a></li>
+                <li><a href="/coorduser">Listar Eventos atuais da Coordenação</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/coorduserall">Listar todos Eventos da Coordenação</a></li>
               </ul>
             </li>
             @else
