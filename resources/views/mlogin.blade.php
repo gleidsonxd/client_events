@@ -45,7 +45,7 @@
 	
 	<div class="jumbotron" style="background-color:#00420c">
       <div class="banner">
-        <h1 style="color:white; text-align: center">Campus JP - EVENTOS</h1>
+       <a href="/eventos" style="text-decoration: none"><h1 style="color:white; text-align: center">Campus JP - EVENTOS</h1></a>
       </div>
     </div>
     <!--Banner-->

@@ -72,7 +72,7 @@
 	<div class=" form-group">
 	<form action="/eventos/{{ $eventos->id }}" method="POST">
 			<label for="nome">Nome do Evento:</label>
-			<input type="text" class="form-control" name="nome" id="nome" value="{{ $eventos->nome }}">
+			<input type="text" class="form-control" name="nome" id="nome" value="{{ $eventos->nome }}" required>
 			
 			<label for="criador">Criado por:</label>
 			<input type="text" class="form-control"  id="criador" value="{{ $eventos->usuario->nome }}" disabled>
@@ -136,9 +136,9 @@
 			@endif
 		<!--BOOTSTRAP DATEPICKER-->
 			<label for="data_ini">Data Inicial:</label>
-			<input type="datetime-local" name="data_ini" value="{{ $datei->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_ini">
+			<input type="datetime-local" name="data_ini" value="{{ $datei->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_ini" required>
 			<label for="data_fim">Data Final:</label>
-			<input type="datetime-local" name="data_fim" value="{{ $datef->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_fim"><br>
+			<input type="datetime-local" name="data_fim" value="{{ $datef->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_fim" required><br>
 			
 			
 			{{ csrf_field() }}
