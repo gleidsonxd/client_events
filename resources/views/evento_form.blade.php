@@ -59,14 +59,11 @@
 			</select>
 	
 			<label for="data_ini">Data Inicial:</label>
-
 			<input type="datetime-local" name="data_ini" class="form-control" id="data_ini" required>
 			<label for="data_fim">Data Final:</label>
 			<input type="datetime-local" name="data_fim" class="form-control" id="data_fim" required><br>
 
-			<input  type="datetime-local" name="data_ini" class="form-control" id="data_ini" required>
-			<label for="data_fim">Data Final:</label>
-			<input  type="datetime-local" name="data_fim" class="form-control" id="data_fim" required><br>
+			
 
 			
 	

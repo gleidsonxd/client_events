@@ -49,8 +49,6 @@
 
        <a href="/eventos" style="text-decoration: none"><h1 style="color:white; text-align: center">Campus JP - EVENTOS</h1></a>
 
-        <a href="/eventos" style="text-decoration: none"><h1 style="color:white; text-align: center">Campus JP - EVENTOS</h1></a>
-
       </div>
     </div>
     <!--Banner-->

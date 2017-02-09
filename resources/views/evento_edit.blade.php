@@ -84,7 +84,7 @@
 			<label for="servicos">Servicos:</label>
 			@if($serv != null)
 		    <select class="form-control" id="servicos" name="servicos[]" multiple="multiple">
-		    	<!--<option value="" disabled>---</option>-->
+		    	
 				@foreach($servicos as $s)
 					@foreach($pssi  as $p)
 						@if($s->id == $p)
@@ -111,7 +111,7 @@
 			<label for="lugares">Lugares:</label>
 			@if($lug != null)
 			<select class="form-control" id="lugares" name="lugares[]" multiple="multiple">
-				<!--<option value="" disabled>---</option>-->
+				
 				@foreach($lugars as $l)
 					@foreach($plli  as $p)
 						@if($l->id == $p)
@@ -158,5 +158,5 @@
 		
 	</div>		
 
-	<!--<a href="/index">Volta</a>-->
+	
 @endsection
