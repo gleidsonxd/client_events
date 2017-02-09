@@ -40,7 +40,6 @@
                 $datef = $datef->format('Y-m-d H:i');
                 
           ?>
-          <!--<li><a href="/eventos/{{$e->id}}"><h3 stytle="text-align:left">{{$e->nome}} - {{$e->data_ini}}</h3></a></li>-->
           @if(strtotime($datei) > strtotime($dateA)) 
             <li><a href="/eventos/{{$e->id}}"><h3 stytle="text-align:left">Nome: {{$e->nome}}</h3></a></li>
           @elseif(strtotime($datef) < strtotime($dateA))
