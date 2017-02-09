@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-
+	
 	<style type="text/css">
 	.form-group{
 		border-style: double; 
@@ -29,7 +29,7 @@
 		<div class="form-group" style="">
 			<label for="nome">Nome do Evento:</label>
 			<input type="text" class="form-control" name="nome" id="nome" required>
-			
+
 			<label for="desc">Descrição do evento:</label>
 	  		<textarea class="form-control" rows="5" name="desc" id="desc"></textarea>
 			
@@ -59,9 +59,15 @@
 			</select>
 	
 			<label for="data_ini">Data Inicial:</label>
+
 			<input type="datetime-local" name="data_ini" class="form-control" id="data_ini" required>
 			<label for="data_fim">Data Final:</label>
 			<input type="datetime-local" name="data_fim" class="form-control" id="data_fim" required><br>
+
+			<input  type="datetime-local" name="data_ini" class="form-control" id="data_ini" required>
+			<label for="data_fim">Data Final:</label>
+			<input  type="datetime-local" name="data_fim" class="form-control" id="data_fim" required><br>
+
 			
 	
 			{{ csrf_field() }}
