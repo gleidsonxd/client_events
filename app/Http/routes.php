@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return view('/mlogin');
+    return view('/eventos');
 });
 Route::get('/index', 'HomeController@index');
 Route::get('/noadmin', 'HomeController@noadmin');#erro de admin

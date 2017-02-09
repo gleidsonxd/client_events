@@ -23,11 +23,12 @@
 	}
 
 	.footer {
-			position: absolute;
+			/*position: absolute;*/
 		  right: 0;
 		  bottom: 0;
 		  left: 0;
 		  padding: 1rem;
+		  margin-top: 10%;
       margin-right: 15%;
       margin-left: 15%;
       background-color: #00420c;
@@ -45,14 +46,14 @@
 	
 	<div class="jumbotron" style="background-color:#00420c">
       <div class="banner">
-        <h1 style="color:white; text-align: center">Campus JP - EVENTOS</h1>
+        <a href="/eventos" style="text-decoration: none"><h1 style="color:white; text-align: center">Campus JP - EVENTOS</h1></a>
       </div>
     </div>
     <!--Banner-->
     
 	<div class="container" >
 
-      <form class="form-signin" action="\login" method="POST"  onSubmit="return validate(this);" name="form_mlogin">
+      <form class="form-signin" action="\login" method="POST"  onSubmit="return validatel(this);" name="form_mlogin">
         <h2 class="form-signin-heading">Please sign in</h2>
         	<label for="inputEmail" class="sr-only">Email address</label>
 					Email: <input type="text" value="noadmin@ifpb.edu.br" name="email" id="inputEmail" class="form-control" required autofocus> <!--^[a-z0-9._%+-]+@ifpb\.edu\.br$-->
