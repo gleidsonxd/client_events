@@ -90,7 +90,7 @@ class EventosController extends Controller
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
 		}
-		if (is_null(json_decode($result))) {
+		if (strpos($result, "Sucesso")) {
 			return view('eventoeors',array('sucesso'=>"Evento criado com sucesso!"));
 			
 		} else {

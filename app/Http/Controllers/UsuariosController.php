@@ -55,9 +55,7 @@ class UsuariosController extends Controller
 	    }else{
 	    	return view('usuarioeors',array('sucesso'=>"Usuário cadastrado com sucesso!"));
 	    }
-		// else{
-		// 	#return view('usuarioeors',array('sucesso'=>"Usuário cadastrado com sucesso!"));
-		// }
+		
 		curl_close ($ch);
 		#return view("index");
     }
