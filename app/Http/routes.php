@@ -15,8 +15,13 @@
 Route::get('/', function () {
     return view('/eventos');
 });
-Route::get('/index', 'HomeController@index');
+#Route::get('/index', 'HomeController@index');
 Route::get('/noadmin', 'HomeController@noadmin');#erro de admin
+
+Route::get('/tutorial', function () {
+    return view('/tutorial');
+});
+
 Route::get('/feed','EventosController@feed'); #rota para passar os eventos para o calendario
 
 Route::get('/mlogin', function () {

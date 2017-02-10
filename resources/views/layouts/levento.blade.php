@@ -162,6 +162,14 @@
                 @endif
               </ul>
             </li>
+              @if(session('logado')!=1)
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorial <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/tutorial">Tutorial</a></li>
+                </ul>
+              </li>
+              @endif
             @endif
           </ul>
           <ul class="nav navbar-nav navbar-right" style="color:white;">
