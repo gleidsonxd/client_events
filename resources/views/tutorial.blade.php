@@ -29,7 +29,7 @@ $('.carousel').carousel({
     <li data-target="#myCarousel" data-slide-to="9"></li>
     <li data-target="#myCarousel" data-slide-to="10"></li>
     <li data-target="#myCarousel" data-slide-to="11"></li>
-    <li data-target="#myCarousel" data-slide-to="12"></li>
+    
 </ol>
 <!-- Wrapper for slides -->
 <div class="carousel-inner" role="listbox">
@@ -75,13 +75,6 @@ $('.carousel').carousel({
         <img src="./image/tutorial/tela_suc_cad_evento.png" alt="Tela Sucesso Eventos" width="460" height="345">
         <div class="carousel-caption">
             <h3 style= "color: Black;">Tela Sucesso Eventos</h3>
-            <!--<p>The atmosphere in Chania has a touch of Florence and Venice.</p>-->
-        </div>
-    </div>
-    <div class="item">
-        <img src="./image/tutorial/tela_erro_cad_evento.png" alt="Tela Erro Eventos" width="460" height="345">
-        <div class="carousel-caption">
-            <h3 style= "color: Black;">Tela Erro Eventos</h3>
             <!--<p>The atmosphere in Chania has a touch of Florence and Venice.</p>-->
         </div>
     </div>
