@@ -34,6 +34,19 @@ class EventosController extends Controller
 	    }
 	    curl_close ($ch);
 	    
+		$ch = curl_init();
+	    curl_setopt($ch, CURLOPT_URL, env('CONSTANT')."/coords".$u);
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); 
+		curl_setopt($ch, CURLOPT_USERPWD, env('USERPWD'));
+	    
+	    $resultc = curl_exec($ch);
+	   
+	    if (curl_errno($ch)) {
+	        echo 'Error:' . curl_error($ch);
+	    }
+	    curl_close ($ch);
+
 	   	$ch = curl_init();
 	    curl_setopt($ch, CURLOPT_URL, env('CONSTANT')."/lugars".$u);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -47,7 +60,7 @@ class EventosController extends Controller
 	    }
 	    curl_close ($ch);
 	    // $pessoa = pessoa::find($id);
-	        return view("evento_form", compact('results', 'resultl'));	
+	        return view("evento_form", compact('results', 'resultl','resultc'));	
     }
     public function create()
      {	

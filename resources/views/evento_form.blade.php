@@ -4,10 +4,10 @@
 	<style type="text/css">
 	.form-group{
 		border-style: double; 
-		margin-right:30%;
-		margin-left: 30%;
-		padding-left: 10%;
-		padding-right:10%;
+		margin-right:25%;
+		margin-left: 25%;
+		padding-left: 5%;
+		padding-right:5%;
 		padding-top: 1%;
 		padding-bottom: 1%;
 		
@@ -18,7 +18,7 @@
         <h3 style ="text-align:center">Importante</h3>    
         <ul style ="text-align:left">
         	<b><li>O evento deve ser marcado com antecedência, de acordo com o tempo dos serviços solicitados.</li></b>
-          	<b><li>É necessário reservar o lugar no SUAP.</li></b>
+          	<b><li>É necessário reservar o local do evento no SUAP.</li></b>
           	<b><li>Não marque eventos em finais de semana ou feriados.</li></b>
           	<b><li>Eventos independentes, que não necessitam dos serviços das coordenações, não poderão solicitar apoio das mesmas no futuro.</li></b>
         </ul>
@@ -32,17 +32,35 @@
 
 			<label for="desc">Descrição do evento:</label>
 	  		<textarea class="form-control" rows="5" name="desc" id="desc"></textarea>
-			
-			<label for="servicos">Servicos:</label>
-		    <select class="form-control" id="servicos" name="servicos[]" multiple="multiple">
-		    	<?php 
+			<?php 
 				@$servicos = json_decode($results);
-					foreach (@$servicos as $servico) {
-				?>	
-				<option value="{{ @$servico->id }}"> {{ @$servico->nome }} - (Tempo: {{@$servico->tempo}} {{@$servico->tempo > 1 ?  "dias" : "dia"}})</option>
-				<?php	
+				$array= array();
+				foreach($servicos as $servico){
+					if ((in_array($servico->coord_id, $array)) == false){
+						$array[$servico->coord->id] =  $servico->coord->nome;	
 					}
-				 ?>
+					#echo $servico->coord->nome;
+				}
+				
+				#var_dump($array);
+			?>
+		
+
+			<label for="servicos">Servicos:</label>
+		    <select class="form-control" id="servicos" name="servicos[]" multiple="multiple" style="height:150px">
+		    	
+				
+					
+			<?php foreach ($array as $key => $value) { ?>
+				<optgroup label="{{ $value }}">
+				@foreach(@$servicos as $servico)
+					@if($servico->coord_id == $key)
+						<option value="{{ @$servico->id }}"> {{ @$servico->nome }} - (Tempo: {{@$servico->tempo}} {{@$servico->tempo > 1 ?  "dias" : "dia"}})</option>	
+					@endif
+				@endforeach
+				</optgroup>
+			<?php } ?>
+				
 		    </select>
 			
 			<label for="lugares">Lugares:</label>
