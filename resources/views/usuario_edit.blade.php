@@ -26,7 +26,11 @@
 			<label for="matricula">Matricula:</label>
 			<input type="text" id="matricula" name="matricula" class="form-control" value="{{ $usuarios->{'matricula'} }}">
 			<label for="email">Email:</label>
+			@if(session('adm') != false)
 			<input type="email" id="email" name="email"  class="form-control"value="{{ $usuarios->{'email'} }}" required>
+			@else
+			<input type="email" id="email" name="email"  class="form-control"value="{{ $usuarios->{'email'} }}" required disabled>
+			@endif
 			@if(session('adm') != false)
 				<label for="coord">Coordenação:</label>
 				@if($usuarios->tcoord == true)

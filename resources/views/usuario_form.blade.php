@@ -24,7 +24,7 @@
 			<label for="email">Email:</label>
 			<?php $pri = session('pri');?>
 			@if($pri == true)
-			<input type="email" id="email" name="email"  value="{{@$email}}" class="form-control" required>
+			<input type="email" id="email" name="email"  value="{{@$email}}" class="form-control" required disabled>
 			@else
 			<input type="email" id="email" name="email"  class="form-control" required>
 			@endif

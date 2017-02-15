@@ -76,6 +76,7 @@
           	<b><li>É necessário reservar o local do evento no SUAP.</li></b>
           	<b><li>Não marque eventos em finais de semana ou feriados.</li></b>
           	<b><li>Eventos independentes, que não necessitam dos serviços das coordenações, não poderão solicitar apoio das mesmas no futuro.</li></b>
+			<b><li>Quando escolher um serviço informe a coordenação responsável como quer que o serviço seja feito.</li></b>
         </ul>
      </div>
 	 <h1>Editar Evento</h1>
