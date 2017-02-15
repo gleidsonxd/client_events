@@ -44,9 +44,11 @@ class LugarsController extends Controller
 		$result = curl_exec($ch);
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
-		    return view('lugareors',array('erro'=>"Ocorreu um erro ao criar o Lugar!"));
+		}
+		if(strpos($result,"Criado")){
+			return view('lugareors',array('sucesso'=>"Lugar criado com sucesso!"));
 		}else{
-	    	return view('lugareors',array('sucesso'=>"Lugar criado com sucesso!"));
+	    	return view('lugareors',array('erro'=>"Ocorreu um erro ao criar o Lugar!"));
 	    }
 		curl_close ($ch);
 		/*return view("index");*/
@@ -104,6 +106,11 @@ class LugarsController extends Controller
 		$result = curl_exec($ch);
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
+		}
+		if(strpos($result,"id")){
+			return view('lugarU', array('result' => $result));
+		}else{
+			return view('lugareors',array('erro'=>"Local não encontrado!"));
 		}
 		curl_close ($ch);
 		return view('lugarU', array('result' => $result));

@@ -58,9 +58,11 @@ class CoordsController extends Controller
 	    	return view('coordeors',array('erro'=>"Ocorreu um erro ao criar a Coordenação!"));
 	    }elseif(strpos($result,"Error")) {
 	    	return view('coordeors',array('erro'=>"Email já cadastrado!"));
-	    }else{
+	    }elseif(strpos($result,"Criada")) {
 	    	return view('coordeors',array('sucesso'=>"Coordenação criada com sucesso!"));
-	    }
+	    }else{
+			return view('coordeors',array('erro'=>"Ocorreu um erro ao criar a Coordenação!"));
+		}
 	    
 	    curl_close ($ch);
 	    
@@ -124,15 +126,19 @@ class CoordsController extends Controller
 	    
 	    // curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
-
+		#strpos($result, "Blank")
 	    $result = curl_exec($ch);
 	   // echo $result;
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
 	    }
+		if(strpos($result,"id")){
+			return view("coordU", array('result' => $result));
+		}else{
+			return view('coordeors',array('erro'=>"Coordenação não encontrada!"));
+		}
 	    curl_close ($ch);
-		// $pessoa = pessoa::find($id);
-	    return view("coordU", array('result' => $result));
+	    
 	}
 
 	public function edit()

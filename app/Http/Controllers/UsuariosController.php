@@ -114,8 +114,13 @@ class UsuariosController extends Controller
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
 		}
+		if(strpos($result,"id")){
+			return view('usuarioU', array('result' => $result));
+		}else{
+			return view('usuarioeors',array('erro'=>"Usuario não encontrado!"));
+		}
 		curl_close ($ch);
-		return view('usuarioU', array('result' => $result));
+		
     }
     public function edit()#ADMIN OU OWNER
     {

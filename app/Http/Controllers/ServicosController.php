@@ -66,10 +66,12 @@ class ServicosController extends Controller
 		$result = curl_exec($ch);
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
-		    return view('servicoeors',array('erro'=>"Ocorreu um erro ao criar o Serviço!"));
+		}
+		if(strpos($result,"Criado")){
+			return view('servicoeors',array('sucesso'=>"Serviço criado com sucesso!"));
 		}
 		else{
-			return view('servicoeors',array('sucesso'=>"Serviço criado com sucesso!"));
+			return view('servicoeors',array('erro'=>"Ocorreu um erro ao criar o Serviço!"));
 		}
 		curl_close ($ch);
 		/*return view("index");*/
@@ -126,10 +128,15 @@ class ServicosController extends Controller
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
 		}
+		if(strpos($result,"id")){
+			return view('servicoU', array('result' => $result));
+		}else{
+			return view('servicoeors',array('erro'=>"Serviço não encontrado!"));
+		}
 		curl_close ($ch);
 		//var_dump(json_decode($result,true));
 		
-		return view('servicoU', array('result' => $result));
+		
     }
     public function edit()
     {

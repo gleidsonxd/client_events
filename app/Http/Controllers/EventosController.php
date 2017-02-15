@@ -107,7 +107,7 @@ class EventosController extends Controller
 			return view('eventoeors',array('sucesso'=>"Evento criado com sucesso!"));
 			
 		} else {
-			return view('eventoeors',array('erro'=>"Ocorreu um erro ao criar o Evento!"));
+			return view('eventoeors',array('erro'=>"Ocorreu um erro ao criar o Evento! Verifique a data escolhida e o tempo dos Serviços escolhidos!"));
 		}
 		
 		curl_close ($ch);
@@ -146,10 +146,15 @@ class EventosController extends Controller
 		if (curl_errno($ch)) {
 		    echo 'Error:' . curl_error($ch);
 		}
+		if(strpos($result,"id")){
+			return view('eventoU', array('result' => $result));
+		}else{
+			return view('eventoeors',array('erro'=>"Evento não encontrado!"));
+		}
 		curl_close ($ch);
 		//var_dump(json_decode($result,true));
 		
-		return view('eventoU', array('result' => $result));
+		
     }
     public function edit()
     {
