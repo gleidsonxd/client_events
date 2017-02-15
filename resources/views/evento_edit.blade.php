@@ -99,14 +99,14 @@
 					@foreach($pssi  as $p)
 						@if($s->id == $p)
 						<optgroup label="{{ $s->coord->nome }}">
-							<option value="{{ $s->id }}" selected>{{ $s->nome }} - (Tempo: {{@$servico->tempo}} {{@$servico->tempo > 1 ?  "dias" : "dia"}})</option>
+							<option value="{{ $s->id }}" selected>{{ $s->nome }} - (Tempo: {{@$s->tempo}} {{@$servico->tempo > 1 ?  "dias" : "dia"}})</option>
 						</optgroup>
 						@endif
 					@endforeach
 					@foreach($ress  as $r)
 						@if($s->id == $r)
 						<optgroup label="{{ $s->coord->nome }}">
-							<option value="{{ $s->id }}" >{{ $s->nome }} - (Tempo: {{@$servico->tempo}} {{@$servico->tempo > 1 ?  "dias" : "dia"}})</option>
+							<option value="{{ $s->id }}" >{{ $s->nome }} - (Tempo: {{@$s->tempo}} {{@$servico->tempo > 1 ?  "dias" : "dia"}})</option>
 						</optgroup>
 						@endif
 					@endforeach	
