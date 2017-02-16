@@ -192,10 +192,13 @@ class UsuariosController extends Controller
 	    if(strpos($result,"Error")) {
 	    	return view('usuarioeors',array('erro'=>"Email já cadastrado!"));
 	    }
-	    else{
-	    	#echo $result;
-	    	return view('usuarioeors', array('result' => $result))->with('sucesso', "Usuário editado com sucesso!");
-	    }
+		elseif(strpos($result,"id")){
+			return view('usuarioeors', array('result' => $result))->with('sucesso', "Usuário editado com sucesso!");
+		}
+		else{
+			return view('usuarioeors',array('erro'=>"Ocorreu um erro ao editar o Usuário!"));
+		}
+	    
 	    curl_close ($ch);
 
 	    

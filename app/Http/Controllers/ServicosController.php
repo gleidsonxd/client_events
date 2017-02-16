@@ -208,10 +208,12 @@ class ServicosController extends Controller
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
 	        return view('servicoeors',array('erro'=>"Ocorreu um erro ao editar o Serviço!"));
-	    }else{
-	    	/*echo $result;*/
-	    	return view('servicoeors', array('result' => $result))->with('sucesso', "Serviço editado com sucesso!");
 	    }
+		if(strpos($result,"id")){
+			return view('servicoeors', array('result' => $result))->with('sucesso', "Serviço editado com sucesso!");
+		}else{
+			return view('servicoeors',array('erro'=>"Ocorreu um erro ao editar o Serviço!"));
+		}
 	    curl_close ($ch);
 
     }

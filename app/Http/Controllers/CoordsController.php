@@ -199,12 +199,13 @@ class CoordsController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
-	        return view('coordeors',array('erro'=>"Ocorreu um erro ao editar a Coordenação!"));
-	    }else{
-	    	/*$sucesso = array('sucesso' =>"Coordenação editada com sucesso!");
-	    	echo $result;*/
-	    	return view('coordeors', array('result' => $result))->with('sucesso', "Coordenação editada com sucesso!");
 	    }
+		if(strpos($result,"id")){
+			return view('coordeors', array('result' => $result))->with('sucesso', "Coordenação editada com sucesso!");
+		}else{
+			return view('coordeors',array('erro'=>"Ocorreu um erro ao editar a Coordenação!"));
+		}
+		
 	    curl_close ($ch);
 
 	}

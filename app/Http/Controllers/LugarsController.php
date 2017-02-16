@@ -169,13 +169,13 @@ class LugarsController extends Controller
 
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
-	        echo 'Error:' . curl_error($ch);
-	        return view('lugareors',array('erro'=>"Ocorreu um erro ao editar o Lugar!"));
-	    }else{
-	    	//$sucesso = array('sucesso' =>"Lugar editado com sucesso!");
-	    	//echo $result;
-	    	return view('lugareors', array('result' => $result))->with('sucesso', "Lugar editado com sucesso!");
+	        echo 'Error:' . curl_error($ch);   
 	    }
+		if(strpos($result,"id")){
+			return view('lugareors', array('result' => $result))->with('sucesso', "Lugar editado com sucesso!");
+		}else{
+			return view('lugareors',array('erro'=>"Ocorreu um erro ao editar o Lugar!"));
+		}
 	    curl_close ($ch);
 
 	}

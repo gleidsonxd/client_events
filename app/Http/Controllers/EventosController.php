@@ -263,15 +263,12 @@ class EventosController extends Controller
 	    }
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
-	    }
-	    if(sizeof(json_decode($result,true))>0){
-	    	return view('eventoeors', array('result' => $result))->with('sucesso', "Evento editado com sucesso!");
-	        //return view('eventoeors',array('erro'=>"Ocorreu um erro ao editar o Evento!"));
-	    }
-	    else{
-	    	return view('eventoeors',array('erro'=>"Ocorreu um erro ao editar o Evento!"));
-	    //	return view('eventoeors', array('result' => $result))->with('sucesso', "Evento editado com sucesso!");
-	    }
+		}
+		if(strpos($result,"id")){
+			return view('eventoeors', array('result' => $result))->with('sucesso', "Evento editado com sucesso!");
+		}else{
+			return view('eventoeors',array('erro'=>"Ocorreu um erro ao editar o Evento!"));
+		}
 	    curl_close ($ch);
 
     }
