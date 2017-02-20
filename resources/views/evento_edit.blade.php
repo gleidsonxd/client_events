@@ -161,11 +161,17 @@
 			</select>
 			@endif
 		<!--BOOTSTRAP DATEPICKER-->
+			@if(session('adm') == true)
 			<label for="data_ini">Data Inicial:</label>
 			<input type="datetime-local" name="data_ini" value="{{ $datei->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_ini" required>
 			<label for="data_fim">Data Final:</label>
 			<input type="datetime-local" name="data_fim" value="{{ $datef->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_fim" required><br>
-			
+			@else
+			<label for="data_ini">Data Inicial:</label>
+			<input type="datetime-local" name="data_ini" value="{{ $datei->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_ini" required disabled>
+			<label for="data_fim">Data Final:</label>
+			<input type="datetime-local" name="data_fim" value="{{ $datef->format('Y-m-d\TH:i:s') }}" class="form-control" id="data_fim" required disabled><br>
+			@endif
 			
 			{{ csrf_field() }}
 			
