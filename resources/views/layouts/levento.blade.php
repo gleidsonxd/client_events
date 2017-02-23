@@ -88,7 +88,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="\eventos">Eventos API</a>
+          <a class="navbar-brand" href="\eventos">Eventos JP</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
