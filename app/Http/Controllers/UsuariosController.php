@@ -185,7 +185,7 @@ class UsuariosController extends Controller
 
 
 	    $result = curl_exec($ch);
-	    echo $result;
+	    #echo $result;
 	    
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
