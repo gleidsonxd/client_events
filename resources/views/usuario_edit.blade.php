@@ -29,7 +29,7 @@
 			@if(session('adm') != false)
 			<input type="email" id="email" name="email"  class="form-control"value="{{ $usuarios->{'email'} }}" required>
 			@else
-			<input type="email" id="email" name="email"  class="form-control"value="{{ $usuarios->{'email'} }}" required disabled>
+			<input type="email" id="email" name="email"  class="form-control"value="{{ $usuarios->{'email'} }}" required readonly="readonly">
 			@endif
 			@if(session('adm') != false)
 				<label for="coord">Coordenação:</label>

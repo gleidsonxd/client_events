@@ -20,10 +20,12 @@ class UsuariosController extends Controller
     public function create()
     {	
     	
-    	$email = session('email');
-    	if (!isset($email)){
-		return view("mlogin");
-		}
+    	// $email = session('email');
+    	// if (!isset($email)){
+		// return view("mlogin");
+		// }
+		
+		
 		if (isset($_POST['coord']) && !is_null($_POST['coord']) && !empty($_POST['coord'])){
 			$u = "usuario[nome]=".$_POST['nome']."&usuario[email]=".$_POST['email']."&usuario[matricula]=".$_POST['matricula'].'&usuario[tcoord]=true';
 		}else{
