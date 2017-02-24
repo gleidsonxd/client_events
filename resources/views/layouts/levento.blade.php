@@ -104,11 +104,11 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lugares <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Locais <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/lugars">Listar Lugars</a></li>
+                <li><a href="/lugars">Listar Locais</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="/form_lugar">Cadastrar Lugars</a></li>
+                <li><a href="/form_lugar">Cadastrar Locais</a></li>
               </ul>
             </li>
             <li class="dropdown">

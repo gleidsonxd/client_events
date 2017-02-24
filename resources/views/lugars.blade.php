@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-	<h1>Lugares</h1>
+	<h1>Locais</h1>
 	<div class="form-group">
 		<div class="well">
 			<ul>

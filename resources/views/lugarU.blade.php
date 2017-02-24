@@ -8,7 +8,7 @@
 			$lugars = json_decode($result);
 			// echo "Nome: ".$lugars->{'nome'}."-"." Quantidade de Pessoas: ".$lugars->{'quantidade'};
 		 ?>
-		<h2>Lugar</h2>
+		<h2>Local</h2>
 		<h3>Nome: {{$lugars->nome}}</h3>
 		<h3>Quantidade: {{$lugars->quantidade}}</h3>
 	</div>
@@ -20,5 +20,5 @@
 		</form>
 	</div>
 
-	<!--<br><br><a href="/index">Volta</a>-->
+	
 @endsection

@@ -46,9 +46,9 @@ class LugarsController extends Controller
 		    echo 'Error:' . curl_error($ch);
 		}
 		if(strpos($result,"Criado")){
-			return view('lugareors',array('sucesso'=>"Lugar criado com sucesso!"));
+			return view('lugareors',array('sucesso'=>"Local criado com sucesso!"));
 		}else{
-	    	return view('lugareors',array('erro'=>"Ocorreu um erro ao criar o Lugar!"));
+	    	return view('lugareors',array('erro'=>"Ocorreu um erro ao criar o Local!"));
 	    }
 		curl_close ($ch);
 		/*return view("index");*/
@@ -172,9 +172,9 @@ class LugarsController extends Controller
 	        echo 'Error:' . curl_error($ch);   
 	    }
 		if(strpos($result,"id")){
-			return view('lugareors', array('result' => $result))->with('sucesso', "Lugar editado com sucesso!");
+			return view('lugareors', array('result' => $result))->with('sucesso', "Local editado com sucesso!");
 		}else{
-			return view('lugareors',array('erro'=>"Ocorreu um erro ao editar o Lugar!"));
+			return view('lugareors',array('erro'=>"Ocorreu um erro ao editar o Local!"));
 		}
 	    curl_close ($ch);
 
@@ -204,9 +204,9 @@ class LugarsController extends Controller
 	    $result = curl_exec($ch);
 	    if (curl_errno($ch)) {
 	        echo 'Error:' . curl_error($ch);
-	        return view('lugareors',array('erro'=>"Ocorreu um erro ao remover o Lugar!"));
+	        return view('lugareors',array('erro'=>"Ocorreu um erro ao remover o Local!"));
 	    }else{
-	    	return view('lugareors',array('sucesso'=>"Lugar removido com sucesso!"));
+	    	return view('lugareors',array('sucesso'=>"Local removido com sucesso!"));
 	    }
 	    curl_close ($ch);
 	    
