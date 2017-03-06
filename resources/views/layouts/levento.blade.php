@@ -178,7 +178,7 @@
     	     	<?php @$email = session('email'); @$logado = session('logado'); ?>
     	     	<li role="presentation" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        			{{ isset($email) ? $email : 'Visitante'}}<span class="caret"></span>
+        			{{ session('logado')==1 ? $email : 'Visitante'}}<span class="caret"></span>
         			</a>
         			<ul class="dropdown-menu">
           			@if($email && session('logado')==1 && session('tcoord') != 1)
