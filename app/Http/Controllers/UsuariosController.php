@@ -240,6 +240,7 @@ class UsuariosController extends Controller
     }
     public function login()
     {
+		
      	$e = $_POST['email'];
 		$p ="".$_POST['password'];
 		#ENV#
@@ -270,6 +271,7 @@ class UsuariosController extends Controller
 		
 	
 		if (@$res->logado == 1) {
+			session()->flush();
 			$email = @$res->email;
 			$id = @$res->id;
 			$logado = @$res->logado;
@@ -291,18 +293,19 @@ class UsuariosController extends Controller
 			session(['id' => $id]);
 			
 			#echo session('tcoord');
+		}elseif(@$res->erro != null){
+			echo @$res->pri;
+			session()->flush();
+			return view('usuarioeors',array('erro'=>"Usuario e senha incorretos!"));
 		}else{
-			
 			session(['email' => $e]);
 			session(['pri' => true]);
-			$erro = @$res->erro;
-			echo "$erro";
-			#return view('usuarioeors');
-			return view("usuarionovo" ,array('erro'=>$erro));
+			return view("usuarionovo");
+	
 		}
 		//	echo session('adm') ;
 		return view("eventos");
-		#
+		
     }
 
     public function logout(Request $req)
