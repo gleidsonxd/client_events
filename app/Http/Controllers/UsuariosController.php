@@ -271,7 +271,7 @@ class UsuariosController extends Controller
 		
 	
 		if (@$res->logado == 1) {
-			session()->flush();
+			// session()->flush();
 			$email = @$res->email;
 			$id = @$res->id;
 			$logado = @$res->logado;
@@ -292,10 +292,8 @@ class UsuariosController extends Controller
 			session(['logado' => $logado]);
 			session(['id' => $id]);
 			
-			#echo session('tcoord');
+			
 		}elseif(@$res->erro != null){
-			echo @$res->pri;
-			session()->flush();
 			return view('usuarioeors',array('erro'=>"Usuario e senha incorretos!"));
 		}else{
 			session(['email' => $e]);
@@ -303,7 +301,6 @@ class UsuariosController extends Controller
 			return view("usuarionovo");
 	
 		}
-		//	echo session('adm') ;
 		return view("eventos");
 		
     }

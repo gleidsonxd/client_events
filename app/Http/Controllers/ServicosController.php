@@ -103,6 +103,7 @@ class ServicosController extends Controller
 		}
 		curl_close ($ch);
 		return view('servicos', array('result' => $result));
+		
     }
     public function read($id)
     {
