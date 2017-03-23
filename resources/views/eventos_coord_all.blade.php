@@ -20,6 +20,18 @@
         $usercoordid = $c->id;
       }
     }
+    $array= array();
+    foreach($eventos as $e){
+      foreach($e->servicos as $e_serv){
+        if($e_serv->coord_id == $usercoordid){
+          if ((in_array($e->id, $array)) == false){
+            $array[$e->id] =  $e->nome;	
+          }
+        }
+      }
+    }
+			
+      // var_dump($array);
     
  
 ?>
@@ -27,12 +39,8 @@
 <h1>Todos os eventos com serviços da coordenação</h1>
 <div class="lista_eventos">
   <ul>
-    @foreach($eventos as $e)
-      @foreach($e->servicos as $e_serv)
-        @if($e_serv->coord_id == $usercoordid)
-            <li><a href="/eventos/{{$e->id}}"><h3 stytle="text-align:left">Nome: {{$e->nome}}</h3></a></li>
-        @endif
-      @endforeach
+    @foreach($array as $e_key => $e_value)
+      <li><a href="/eventos/{{$e_key}}"><h3 stytle="text-align:left">Nome: {{$e_value}}</h3></a></li> 
     @endforeach
   </ul>
 </div>

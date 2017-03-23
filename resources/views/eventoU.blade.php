@@ -27,7 +27,7 @@
 
 	 ?>
 	 <h2>Evento</h2>
-	 <h3>Criado por: {{$eventos->usuario->nome}}</h3>
+	 <h3>Criado por: {{@$eventos->usuario->nome}}</h3>
 	 <h3>Nome: {{$eventos->nome}}</h3> 
 	 @if($eventos->descricao != '')
 	 <h3>Descrição: {{$eventos->descricao}}</h3>

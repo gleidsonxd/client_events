@@ -20,37 +20,45 @@
         $usercoordid = $c->id;
       }
     }
-    
- 
-?>
-
-<h1>Eventos atuais com serviços para a Coordenação</h1>
-<div class="lista_eventos">
-  <ul>
-    @foreach($eventos as $e)
-      @foreach($e->servicos as $e_serv)
-        @if($e_serv->coord_id == $usercoordid)
-          <?php 
-                date_default_timezone_set('America/Fortaleza');
+    #----------------------------------------------------#
+    $array= array();
+    foreach($eventos as $e){
+      foreach($e->servicos as $e_serv){
+        if($e_serv->coord_id == $usercoordid){
+          date_default_timezone_set('America/Fortaleza');
                 $dateA = new DateTime();
                 $dateA = $dateA->format('Y-m-d H:i');
                 $datei = new DateTime($e->data_ini);
                 $datei = $datei->format('Y-m-d H:i');
                 $datef = new DateTime($e->data_fim);
                 $datef = $datef->format('Y-m-d H:i');
-                
-          ?>
-          @if(strtotime($datei) > strtotime($dateA)) 
-            <li><a href="/eventos/{{$e->id}}"><h3 stytle="text-align:left">Nome: {{$e->nome}}</h3></a></li>
-          @elseif(strtotime($datef) < strtotime($dateA))
-          <!--<li><a href="/eventos/{{$e->id}}"><h3 stytle="text-align:left">{{$e->nome}} - {{$e->data_ini}}</h3></a></li>-->
-          @else
-          <li><a href="/eventos/{{$e->id}}"><h3 stytle="text-align:left">Nome: {{$e->nome}}</h3></a></li>
-          @endif
-            
+
+         if(strtotime($datei) > strtotime($dateA)){ 
+            if ((in_array($e->id, $array)) == false){
+              $array[$e->id] =  $e->nome;	
+            } 
+         }
+         elseif(strtotime($datef) < strtotime($dateA)){
+         }
+         else{
+            if ((in_array($e->id, $array)) == false){
+                $array[$e->id] =  $e->nome;	
+              } 
+          } 
+
+        }
+      }
+    }
+    var_dump($array);
+?>
+
+<h1>Eventos atuais com serviços para a Coordenação</h1>
+<div class="lista_eventos">
+  <ul>
+    @foreach($array as $e_key => $e_value)
+      <li><a href="/eventos/{{$e_key}}"><h3 stytle="text-align:left">Nome: {{$e_value}}</h3></a></li>
           
-        @endif
-      @endforeach
+
     @endforeach
   </ul>
 </div>
