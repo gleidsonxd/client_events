@@ -49,7 +49,7 @@
         }
       }
     }
-    var_dump($array);
+    // var_dump($array);
 ?>
 
 <h1>Eventos atuais com serviços para a Coordenação</h1>
